@@ -14,7 +14,7 @@ insert_final_newline = true
 charset = utf-8
 
 # javascript
-[*.{js,jsx,ejs}]
+[*.js]
 indent_style = space
 indent_size = 2
 

@@ -1,4 +1,4 @@
-# React Micro App Starter Kit
+# Game Manager V3
 
 ## Scripts
 
