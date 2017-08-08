@@ -16,7 +16,6 @@
     "codecov": "codecov",
     "build": "npm run build:clean && better-npm-run build",
     "build:clean": "npm run test:clean && rimraf ./client",
-    "postbuild": "node ./tools/webpack/build-microapp.js",
     "start": "better-npm-run start:service",
     "clean:coverage": "rimraf ./coverage"
   },
