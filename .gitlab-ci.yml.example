@@ -6,7 +6,6 @@ cache:
   - node_modules/
 
 before_script:
-  - cp .npmrc-conf .npmrc
   - npm install
 
 stages:
@@ -17,18 +16,14 @@ test:
   stage: test
   script:
     - npm test
-    - npm run test:int
 
 dev:
   stage: deploy
   variables:
     AWS_ACCESS_KEY_ID: $DEV_AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: $DEV_AWS_SECRET_ACCESS_KEY
-    MICRO_APP_ENABLED: $DEV_MICRO_APP_ENABLED
   script:
     - npm test
-    - npm run test:int
-    - npm run build
     - npm run dp:dev:app:e
   environment: dev
   except:
@@ -39,11 +34,8 @@ production:
   variables:
     AWS_ACCESS_KEY_ID: $PROD_AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: $PROD_AWS_SECRET_ACCESS_KEY
-    MICRO_APP_ENABLED: $PROD_MICRO_APP_ENABLED
   script:
     - npm test
-    - npm run test:int
-    - npm run build
     - npm run dp:prd:app:e
   environment: production
   only:
