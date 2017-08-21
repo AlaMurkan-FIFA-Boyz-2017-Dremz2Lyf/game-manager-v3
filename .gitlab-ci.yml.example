@@ -6,6 +6,7 @@ cache:
   - node_modules/
 
 before_script:
+  - cp .npmrc-conf .npmrc
   - npm install
 
 stages:

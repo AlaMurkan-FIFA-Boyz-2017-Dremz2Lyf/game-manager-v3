@@ -74,6 +74,7 @@
   },
   "homepage": "https://gitlab.com/danteinc-tutorial/react-starter-kit#README",
   "dependencies": {
+    "@dante/ouli-default-theme": "0.1.0",
     "babel-plugin-react-css-modules": "2.8.0",
     "babel-plugin-transform-runtime": "6.23.0"
   },
