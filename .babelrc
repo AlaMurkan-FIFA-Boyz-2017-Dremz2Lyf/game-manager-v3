@@ -1,0 +1,68 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "safari >= 7"
+          ]
+        }
+      }
+    ],
+    "react",
+    "stage-2"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel",
+        [
+          "react-css-modules",
+          {
+            "generateScopedName": "[name]__[local].[hash:base64:5]",
+            "exclude": "node_modules"
+          }
+        ]
+      ]
+    },
+    "production": {
+      "only": [
+        "app"
+      ],
+      "plugins": [
+        [
+          "react-css-modules",
+          {
+            "generateScopedName": "[hash:base64]",
+            "exclude": "node_modules"
+          }
+        ],
+        "transform-react-remove-prop-types",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "react-hot-loader/babel",
+        [
+          "react-css-modules",
+          {
+            "generateScopedName": "[name]__[local].[hash:base64:5]",
+            "exclude": "node_modules"
+          }
+        ],
+        [
+          "istanbul",
+          {
+            "exclude": [
+              "**/*.test.js"
+            ]
+          }
+        ]
+      ]
+    }
+  }
+}

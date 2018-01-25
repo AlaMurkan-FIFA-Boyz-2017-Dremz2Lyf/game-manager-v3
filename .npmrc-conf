@@ -1,0 +1,3 @@
+@dante:registry=https://npm.stack.danteconsulting.com/
+//npm.stack.danteconsulting.com/:_authToken=${NPM_TOKEN}
+//npm.stack.danteconsulting.com/:always-auth=true

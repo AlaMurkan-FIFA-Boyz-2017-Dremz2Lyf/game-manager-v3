@@ -1,0 +1,17 @@
+{
+  "name": "react-micro-app-starter-kit",
+  "title": "Starter Kit",
+  "icon": "",
+  "mountPoints": [
+    {
+      "title": "Starter Kit",
+      "icon": "",
+      "mountPoint": "global",
+      "order": 0,
+      "roles": ["ADMIN"],
+      "supportedDevices":[],
+      "entryPoint": ""
+    }
+  ]
+}
+
