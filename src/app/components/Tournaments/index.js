@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Segment, Header, Button, Item, Icon } from 'semantic-ui-react';
 
 const Tournaments = ({ onSelect }) => (
@@ -44,5 +45,9 @@ const Tournaments = ({ onSelect }) => (
     </Segment>
   </Segment.Group>
 );
+
+Tournaments.propTypes = {
+  onSelect: PropTypes.func,
+};
 
 export default Tournaments;
