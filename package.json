@@ -1,7 +1,7 @@
 {
-  "name": "react-micro-app-starter-kit",
+  "name": "game-manager-v3",
   "version": "1.0.0",
-  "description": "A Starter Kit for a React UI Project",
+  "description": "Guess who's back",
   "main": "index.js",
   "scripts": {
     "test": "better-npm-run test",
@@ -18,9 +18,7 @@
     "build:clean": "npm run test:clean && rimraf ./client",
     "start": "better-npm-run start:service",
     "start:local": "better-npm-run start:local",
-    "clean:coverage": "rimraf ./coverage",
-    "dp:dev:app:e": "s3-deploy './client/dist/**' --cwd './client/dist/' --region us-east-1 --bucket dev-us-east-1-offer-mgt-app.stack.danteconsulting.com --cache 31536000",
-    "dp:prd:app:e": "s3-deploy './client/dist/**' --cwd './client/dist/' --region us-east-1 --bucket prod-us-east-1-offer-mgt-app.allegory.me --cache 31536000"
+    "clean:coverage": "rimraf ./coverage"
   },
   "betterScripts": {
     "test": {
@@ -68,20 +66,16 @@
   "pre-commit": "lint:staged",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/danteinc-tutorial/react-starter-kit.git"
+    "url": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/game-manager-v3.git"
   },
-  "keywords": [
-    "crud",
-    "micro app"
-  ],
-  "author": "Dante",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "keywords": [],
+  "author": "Scott Horn, Jimmy A. Stevenson",
+  "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/danteinc-tutorial/react-starter-kit/issues"
+    "url": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/game-manager-v3/issues"
   },
-  "homepage": "https://gitlab.com/danteinc-tutorial/react-starter-kit#README",
+  "homepage": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/game-manager-v3#README",
   "dependencies": {
-    "@dante/ouli-default-theme": "0.4.0",
     "babel-plugin-react-css-modules": "2.8.0",
     "babel-plugin-transform-runtime": "6.23.0"
   },
