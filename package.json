@@ -142,7 +142,6 @@
     "karma-webpack": "^2.0.4",
     "lint-staged": "^4.0.2",
     "mocha": "^3.4.2",
-    "modernizr-loader": "^1.0.1",
     "null-loader": "^0.1.1",
     "postcss": "^6.0.8",
     "postcss-cssnext": "^3.0.2",

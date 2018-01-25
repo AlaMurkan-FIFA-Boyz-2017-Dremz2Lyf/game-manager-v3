@@ -18,7 +18,6 @@ module.exports = {
         ],
       },
       { test: /\.css$/, include: /node_modules/, loader: 'null-loader' },
-      { test: /\.modernizrrc$/, loader: ['modernizr-loader', 'json-loader'] },
     ],
   },
   // Some node_modules pull in Node-specific dependencies.
@@ -33,9 +32,7 @@ module.exports = {
     tls: 'empty',
   },
   resolve: {
-    alias: {
-      modernizr$: path.resolve(__dirname, "../../.modernizrrc"),
-    },
+    alias: {},
     extensions: ['.js', '.jsx', '.json'],
     modules: [
       'src',

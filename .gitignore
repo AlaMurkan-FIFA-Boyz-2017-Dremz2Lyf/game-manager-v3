@@ -6,3 +6,5 @@ coverage
 
 .idea
 *.orig
+
+npm-debug.log
