@@ -4,16 +4,12 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const packageContents = require('../../micro-app.json');
-const microAppName = packageContents.name;
 
 module.exports = options => ({
   devServer: options.devServer ? options.devServer: undefined,
   entry: options.entry,
   output: Object.assign({
-    path: path.join(process.cwd(), 'client/dist/micro-apps/', microAppName, '/'),
+    path: path.join(process.cwd(), 'client/dist/'),
     publicPath: '/',
   }, options.output), // Merge with env dependent settings
   module: {
@@ -72,9 +68,6 @@ module.exports = options => ({
       }, {
         test: /\.(mp4|webm)$/,
         loader: 'url-loader?limit=10000',
-      }, {
-        test: /\.modernizrrc$/,
-        loader: ['modernizr-loader', 'json-loader'],
       },
     ]),
   },
@@ -86,8 +79,7 @@ module.exports = options => ({
       'process.env': {
         VERSION: JSON.stringify(process.env.GIT_COMMIT || 'development'),
         HOT_RELOAD: process.env.HOT_RELOAD || 'false',
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        LOCAL: process.env.LOCAL
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       },
     }),
     new webpack.LoaderOptionsPlugin({
@@ -97,9 +89,7 @@ module.exports = options => ({
     }),
   ]),
   resolve: {
-    alias: {
-      modernizr$: path.resolve(__dirname, "../../.modernizrrc"),
-    },
+    alias: {},
     extensions: ['.js', '.jsx', '.json'],
     modules: [
       'src',

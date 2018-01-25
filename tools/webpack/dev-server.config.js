@@ -85,7 +85,8 @@ const getCSPDirectives = () => {
     'font-src \'self\' dev-us-east-1-ouli-theme.stack.danteconsulting.com data: fonts.gstatic.com',
     'connect-src \'self\' http://10.0.2.2:3000 ws://localhost:3000 ws://10.0.2.2:3000',
   ];
-  return cspDirectives.join('; ');
+  cspDirectives.join('; ');
+  return 'default-src *';
 };
 
 module.exports = require('./base.config')({
@@ -104,7 +105,6 @@ module.exports = require('./base.config')({
     port: port, // Port Number
     host: host, // Change to '0.0.0.0' for external facing server
     headers: {
-      'Content-Security-Policy': getCSPDirectives(),
       // X-Frame-Options response header improve the protection of web applications against Clickjacking.
       // reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
       'X-Frame-Options': 'SAMEORIGIN',
@@ -117,7 +117,14 @@ module.exports = require('./base.config')({
     },
   },
   // Entry points to the project
-  entry: getEntry(),
+  entry: {
+    app: [
+      'react-hot-loader/patch',
+      `webpack-dev-server/client?http://${host}:${port}`,
+      'webpack/hot/only-dev-server',
+      path.join(process.cwd(), 'src/app/index.js'),
+    ]
+  },
   devtool: process.env.FAST_SOURCEMAPS ? 'eval' : 'source-map',
   output: {
     filename: '[name].js',
