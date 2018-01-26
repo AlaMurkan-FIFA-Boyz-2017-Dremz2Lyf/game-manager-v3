@@ -2,11 +2,11 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import Tournaments from '../index';
+import GameForm from '../index';
 
-describe('<Tournaments />', () => {
+describe('<GameForm />', () => {
   it('should render', () => {
-    const renderedComponent = shallow(<Tournaments />);
+    const renderedComponent = shallow(<GameForm />);
     expect(renderedComponent).to.be.present();
   });
 });

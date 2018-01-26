@@ -1,11 +1,13 @@
 import React from 'react';
-import { Segment, Header, Button, Item, Icon, Container, Grid, Label, Image } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Segment, Header, Container, Grid, Label, Image } from 'semantic-ui-react';
+import GameForm from '../GameForm';
 
 const Game = ({ status }) => (
   status === 'started' ? (
     <Segment>
       <Container>
-        <Button primary fluid>Finish this Game</Button>
+        <GameForm status={status} />
         <Segment.Group size="small" horizontal>
           <Segment textAlign="left">
             <Grid>
@@ -42,7 +44,7 @@ const Game = ({ status }) => (
                   <Header>
                   Agustin
                   </Header>
-                Manchester United FC
+                  Manchester United FC
                   <Label>
                   0-3-5
                   </Label>
@@ -56,7 +58,7 @@ const Game = ({ status }) => (
   ) : (
     <Segment>
       <Container>
-        <Button fluid>Start!</Button>
+        <GameForm status={status} />
         <Segment.Group size="small" horizontal>
           <Segment compact textAlign="left">
             <Grid>
@@ -102,5 +104,9 @@ const Game = ({ status }) => (
     </Segment>
   )
 );
+
+Game.propTypes = {
+  status: PropTypes.string,
+};
 
 export default Game;
