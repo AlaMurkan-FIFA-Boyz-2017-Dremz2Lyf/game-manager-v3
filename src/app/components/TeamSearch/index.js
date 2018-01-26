@@ -6,7 +6,6 @@ const baseUrl = 'http://api.football-data.org/v1/competitions/';
 const headers = new Headers({
   'X-Auth-Token': process.env.X_AUTH_TOKEN,
 });
-console.log(process.env.X_AUTH_TOKEN);
 const options = {
   method: 'GET',
   headers,
