@@ -77,6 +77,7 @@ module.exports = options => ({
     // drop any unreachable code.
     new webpack.DefinePlugin({
       'process.env': {
+        X_AUTH_TOKEN: JSON.stringify(process.env.X_AUTH_TOKEN),
         VERSION: JSON.stringify(process.env.GIT_COMMIT || 'development'),
         HOT_RELOAD: process.env.HOT_RELOAD || 'false',
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)

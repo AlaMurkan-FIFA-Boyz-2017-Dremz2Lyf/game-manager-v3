@@ -5,6 +5,8 @@ import './theme';
 import HotReloadContainer from './hot-reload-container';
 import Home from './components/Home';
 
+require('dotenv').config();
+
 const appDom = document.getElementById('app');
 
 const WithParent = (

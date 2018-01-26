@@ -4,8 +4,9 @@ import { Grid, Header, Select, Loader, Segment, Dimmer } from 'semantic-ui-react
 
 const baseUrl = 'http://api.football-data.org/v1/competitions/';
 const headers = new Headers({
-  'X-Auth-Token': '1627141e9f1f40f4a67aae663f2e4029',
+  'X-Auth-Token': process.env.X_AUTH_TOKEN,
 });
+console.log(process.env.X_AUTH_TOKEN);
 const options = {
   method: 'GET',
   headers,

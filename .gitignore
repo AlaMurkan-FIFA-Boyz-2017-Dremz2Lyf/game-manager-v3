@@ -8,3 +8,4 @@ coverage
 *.orig
 
 npm-debug.log
+.env
