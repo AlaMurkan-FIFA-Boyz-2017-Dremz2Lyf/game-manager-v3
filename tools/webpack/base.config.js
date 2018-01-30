@@ -90,7 +90,6 @@ module.exports = options => ({
     }),
   ]),
   resolve: {
-    alias: {},
     extensions: ['.js', '.jsx', '.json'],
     modules: [
       'src',

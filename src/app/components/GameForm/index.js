@@ -1,42 +1,60 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Header, Button, Icon, Modal } from 'semantic-ui-react';
+import { Header, Button, Modal } from 'semantic-ui-react';
 import TeamSearch from '../TeamSearch';
+import FinishGame from '../FinishGame';
 
-const GameForm = ({ status }) => (
-  !(status === 'started') ? (
-    <Modal trigger={<Button fluid>Start</Button>} basic size="small">
-      <Header icon="soccer" content="Select the teams to play with" />
-      <Modal.Content>
-        <TeamSearch />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button basic color="red" inverted>
-          <Icon name="remove" /> Cancel
-        </Button>
-        <Button color="green" inverted>
-          <Icon name="checkmark" /> Confirm
-        </Button>
-      </Modal.Actions>
-    </Modal>
-  ) : (
-    <Modal trigger={<Button primary fluid>Finish this Game</Button>} basic size="small">
-      <Header icon="archive" content="Archive Old Messages" />
-      <Modal.Content>
-        <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-      </Modal.Content>
-      <Modal.Actions>
-        <Button basic color="red" inverted>
-          <Icon name="remove" /> No
-        </Button>
-        <Button color="green" inverted>
-          <Icon name="checkmark" /> Yes
-        </Button>
-      </Modal.Actions>
-    </Modal>
-  )
-);
+class GameForm extends PureComponent {
+  state = {
+    modalOpen: false,
+  }
 
+  closeModal = () => {
+    this.setState({
+      modalOpen: false,
+    });
+  }
+
+  openModal = () => {
+    this.setState({
+      modalOpen: true,
+    });
+  }
+
+  render() {
+    const { modalOpen } = this.state;
+    const { status } = this.props;
+    let headerContent = 'Select Teams';
+    let buttonContent = 'Start';
+    let buttonPrimary = false;
+
+    if (status === 'started') {
+      headerContent = 'Complete Game';
+      buttonContent = 'Complete Game';
+      buttonPrimary = true;
+    }
+
+    return (
+      <Modal
+        open={modalOpen}
+        onOpen={this.openModal}
+        onClose={this.closeModal}
+        trigger={<Button primary={buttonPrimary} fluid>{buttonContent}</Button>}
+        basic
+        size="small"
+      >
+        <Header icon="soccer" content={headerContent} />
+        {
+          status === 'started' ? (
+            <FinishGame closeModal={this.closeModal} />
+          ) : (
+            <TeamSearch closeModal={this.closeModal} />
+          )
+        }
+      </Modal>
+    );
+  }
+}
 GameForm.propTypes = {
   status: PropTypes.string,
 };

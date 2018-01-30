@@ -77,7 +77,9 @@
   "homepage": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/game-manager-v3#README",
   "dependencies": {
     "babel-plugin-react-css-modules": "2.8.0",
-    "babel-plugin-transform-runtime": "6.23.0"
+    "babel-plugin-transform-runtime": "6.23.0",
+    "random-id": "0.0.2",
+    "tesseract.js": "^1.0.10"
   },
   "devDependencies": {
     "apollo-test-utils": "0.3.2",
