@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Segment, Message, Header, Icon } from 'semantic-ui-react';
 
-const TwitterSearch = ({ searchTerm }) => (
+const TwitterSearch = ({ hashTag }) => (
   <Segment basic>
     <Header color="teal" as="h2">
       <Icon name="twitter" />
       <Header.Content>
-        Use the Hashtag below to tweet the screenshot.
+        Tweet it.
       </Header.Content>
     </Header>
     <Message color="teal">
       <Message.Header>
-        {searchTerm}
+        {`#${hashTag}`}
       </Message.Header>
-      <p>Hit next after the tweet has been sent.</p>
+      <p>Add this hashtag to your tweet and next after the tweet has been sent.</p>
     </Message>
   </Segment>
 );
 
 TwitterSearch.propTypes = {
-  searchTerm: PropTypes.string,
+  hashTag: PropTypes.string,
   generateHashtag: PropTypes.func,
 };
 

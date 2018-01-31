@@ -1,48 +1,52 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Image, Header, Grid, Step, Icon, Button, Modal } from 'semantic-ui-react';
+import { Segment, Responsive, Image, Header, Grid, Step, Icon, Button, Modal } from 'semantic-ui-react';
 // import randomID from 'random-id';
 import RenderStep from './RenderStep';
-// import { combineResults } from '../../utilities';
-
-// const
 
 class FinishGame extends PureComponent {
   state = {
     loading: false,
-    searchTerm: '',
+    hashTag: '',
     step: 0,
-    images: [],
+    images: null,
     imageSource: '',
   }
-
 
   componentDidMount() {
     this.generateHashtag();
   }
 
-  onSearchChange = (_, { searchTerm }) => {
+  onSearchChange = (_, { hashTag }) => {
     this.setState({
-      searchTerm,
+      hashTag,
+    });
+  }
+
+  onResults = (results) => {
+    this.setState({
+      results,
+      loading: false,
+      step: this.state.step + 1,
     });
   }
 
   HASHTAG_LENGTH = 10;
-  baseUrl = 'https://9lu2sgi14m.execute-api.us-east-1.amazonaws.com/dev/ocr?q=';
+  baseUrl = 'https://7rp02amdfi.execute-api.us-east-1.amazonaws.com/dev/ocr?q=';
 
   fetchImages = () => {
-    const { searchTerm } = this.state;
+    const { hashTag } = this.state;
 
     this.setState({ loading: true });
 
-    fetch(`${this.baseUrl}${searchTerm}`)
+    fetch(`${this.baseUrl}${hashTag}`)
       .then(response => response.json())
       .then((results) => {
-        const { cropped, imageSource: { imageUrl: imageSource } } = results;
+        const { images, imageSource } = results;
 
         this.setState({
           imageSource,
-          images: cropped,
+          images,
         }, () => {
           this.nextStep();
         });
@@ -51,31 +55,58 @@ class FinishGame extends PureComponent {
 
   nextStep = () => {
     const nextStep = this.state.step + 1;
-    this.setState({
-      step: nextStep,
-    });
+    if (nextStep < 5) {
+      this.setState({
+        step: nextStep,
+      });
+    } else {
+      // TODO: submit mutation here.
+      this.closeModal();
+    }
+  }
+
+  closeModal = () => {
+    const { closeModal } = this.props;
+    closeModal();
   }
 
   generateHashtag = () => {
     // NOTE: for testing we use a locked tag. add this back in when ready
-    // const searchTerm = randomID(HASHTAG_LENGTH);
-    const searchTerm = '656liv4manure0';
+    // const hashTag = randomID(HASHTAG_LENGTH);
+    const hashTag = '656liv4manure0';
     this.setState({
-      searchTerm,
+      hashTag,
     });
   }
 
+  renderButtons = () => {
+    const { step } = this.state;
+    const disabled = step === 2 || step === 3;
+    return (
+      <Modal.Actions>
+        <Button basic color="red" inverted onClick={this.closeModal}>
+          <Icon name="remove" /> Cancel
+        </Button>
+        <Button disabled={disabled} color="green" inverted onClick={this.nextStep}>
+          {step === 4 ? <Icon name="checkmark" /> : null}
+          {step === 4 ? 'Verify' : 'Next'}
+        </Button>
+      </Modal.Actions>
+    );
+  }
 
   render() {
-    const { step, imageSource, searchTerm, loading, images } = this.state;
-    const { closeModal } = this.props;
+    const { step, imageSource, hashTag, loading, images, results } = this.state;
+
     const stepProps = {
+      results,
       step,
       imageSource,
-      searchTerm,
+      hashTag,
       loading,
       images,
       fetchImages: this.fetchImages,
+      onResults: this.onResults,
     };
 
     return (
@@ -83,71 +114,63 @@ class FinishGame extends PureComponent {
         <Modal.Content>
           <Grid columns={2}>
             <Grid.Row>
-              <Grid.Column mobile={16} computer={6}>
-                <Step.Group vertical size="small">
+              <Grid.Column verticalAlign="middle" mobile={4} computer={6}>
+                <Step.Group vertical size="mini">
                   <Step
                     completed={step > 0}
                     active={step === 0}
                   >
-                    <Icon name="info" />
-                    <Step.Content>
+                    <Icon size="small" name="info" />
+                    <Responsive as={Step.Content} {...Responsive.onlyComputer}>
                       <Step.Title>Directions</Step.Title>
-                    </Step.Content>
+                    </Responsive>
                   </Step>
                   <Step
                     completed={step > 1}
                     active={step === 1}
                   >
-                    <Icon name="hashtag" />
-                    <Step.Content>
+                    <Icon size="small" name="hashtag" />
+                    <Responsive as={Step.Content} {...Responsive.onlyComputer}>
                       <Step.Title>Hashtag</Step.Title>
-                    </Step.Content>
+                    </Responsive>
                   </Step>
                   <Step
                     completed={step > 2}
                     active={step === 2}
                   >
-                    <Icon name="twitter square" />
-                    <Step.Content>
+                    <Icon size="small" name="twitter" />
+                    <Responsive as={Step.Content} {...Responsive.onlyComputer}>
                       <Step.Title>Searching</Step.Title>
-                    </Step.Content>
+                    </Responsive>
                   </Step>
                   <Step
                     completed={step > 3}
                     active={step === 3}
                   >
-                    <Icon name="check" />
-                    <Step.Content>
-                      <Step.Title>Processing Results</Step.Title>
-                    </Step.Content>
+                    <Icon size="small" name="spinner" loading={step ===3} />
+                    <Responsive as={Step.Content} {...Responsive.onlyComputer}>
+                      <Step.Title>Processing</Step.Title>
+                    </Responsive>
                   </Step>
                   <Step
                     completed={step > 4}
                     active={step === 4}
                   >
-                    <Icon name="check" />
-                    <Step.Content>
-                      <Step.Title>Confirm Results</Step.Title>
-                    </Step.Content>
+                    <Icon size="small" name="pointing down" />
+                    <Responsive as={Step.Content} {...Responsive.onlyComputer}>
+                      <Step.Title>Confirm</Step.Title>
+                    </Responsive>
                   </Step>
                 </Step.Group>
               </Grid.Column>
-              <Grid.Column mobile={16} computer={10}>
+              <Grid.Column mobile={12} computer={10}>
                 <RenderStep {...stepProps} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
         </Modal.Content>
         <Segment basic floated="right">
-          <Modal.Actions>
-            <Button basic color="red" inverted onClick={closeModal}>
-              <Icon name="remove" /> Cancel
-            </Button>
-            <Button color="green" inverted onClick={this.nextStep}>
-              {step === 3 ? <Icon name="checkmark" /> : null}
-              {step === 3 ? 'Verify' : 'Next'}
-            </Button>
-          </Modal.Actions>
+          {this.renderButtons()}
         </Segment>
         <Header color="teal" content="Results" />
         <Image

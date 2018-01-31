@@ -1,19 +1,28 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Progress, Message } from 'semantic-ui-react';
-
+import { Segment, Progress, Message, Header } from 'semantic-ui-react';
 import Tesseract from 'tesseract.js';
+import { combineResults } from '../../utilities/index';
+
 
 const whitelist = 'AYRSTPOTFIC%0123456789hotsnfargjetiwckluyd ';
+const STATUS_CHECK = 'recognizing text';
 
 class ImageReader extends PureComponent {
   static propTypes = {
-    images: PropTypes.array,
+    images: PropTypes.object,
+    onResults: PropTypes.func,
   }
   state = {
     statsPercent: 0,
     scorePercent: 0,
     results: null,
+    processing: false,
+  }
+
+  componentDidMount() {
+    const { images } = this.props;
+    this.readImages(images);
   }
 
   tesseractJob = Tesseract.create({
@@ -23,34 +32,39 @@ class ImageReader extends PureComponent {
 
   errorMessage = 'Welp, something went wrong. Tell Scott to fix his crap.'
 
+
   readImages = (images) => {
-    const promises = images.map((image) => {
-      console.log({ image });
-      return Promise.resolve(this.tesseractJob.recognize(image, {
+    const { onResults } = this.props;
+
+    this.setState({ processing: true });
+    const promises = Object.keys(images).map(type =>
+      Promise.resolve(this.tesseractJob.recognize(images[type], {
         lang: 'eng',
         tessedit_char_whitelist: whitelist,
-      }).progress(progress => console.log({ progress })).catch((error) => {
+      }).progress(({ status, progress }) => {
+        if (status === STATUS_CHECK) {
+          const stateKey = `${type}Percent`;
+          const percentage = Math.floor(progress * 100);
+          this.setState({
+            [stateKey]: percentage,
+          });
+        }
+      }).catch((error) => {
         this.setState({ error });
-      }));
-    });
+      })),
+    );
 
     return Promise.all(promises).then((results) => {
       const final = results.map(({ lines }) => lines.map(({ text }) => text));
       this.tesseractJob.terminate();
       return final;
-    }).then((results) => {
-      this.setState({
-        results,
-      });
+    }).then((result) => {
+      onResults(combineResults(result));
     });
   }
 
   render() {
-    const { statsPercent, scorePercent, results, error } = this.state;
-    const { images } = this.props;
-    if (images.length === 2 && !results) {
-      this.readImages(images);
-    }
+    const { statsPercent, scorePercent, error } = this.state;
 
     return (
       <Segment basic>
@@ -64,12 +78,11 @@ class ImageReader extends PureComponent {
             <Message color="red" header="Oops!" content={this.errorMessage} />
           ) : (
             <Segment basic>
-              <p>{results}</p>
-              <Progress percent={scorePercent}>
-                Processing Score
+              <Progress progress="percent" color="teal" percent={scorePercent}>
+                <Header color="grey" size="small">Processing Score</Header>
               </Progress>
-              <Progress percent={statsPercent}>
-                Processing Stats
+              <Progress progress="percent" color="teal" percent={statsPercent}>
+                <Header color="grey" size="small">Processing Stats</Header>
               </Progress>
             </Segment>
           )

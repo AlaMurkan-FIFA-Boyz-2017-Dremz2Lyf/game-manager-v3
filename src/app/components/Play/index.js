@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Segment, Header, Message } from 'semantic-ui-react';
 import Game from '../Game';
+import { games } from '../../mocks';
 
 const Play = ({ tournament }) => (
   <Segment.Group>
@@ -20,8 +21,9 @@ const Play = ({ tournament }) => (
         </p>
       </Message>
     ) : (
-      [<Game status="created" />,
-        <Game status="started" />]
+      games.map(game => (
+        <Game key={game.id} {...game} />
+      ))
     )}
   </Segment.Group>
 );
