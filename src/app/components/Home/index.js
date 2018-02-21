@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Header, Container, Grid } from 'semantic-ui-react';
+import { Segment, Header, Menu } from 'semantic-ui-react';
 import Tournaments from '../Tournaments';
 import Play from '../Play';
 
@@ -22,21 +22,15 @@ class Home extends Component {
     const { tournament } = this.state;
 
     return (
-      <Container styleName="home">
-        <Segment>
-          <Header textAlign="left" size="huge">Game Manager</Header>
+      <div styleName="home">
+        <Header textAlign="left" size="huge">Game Manager</Header>
+        <Menu inverted vertical fixed="left">
+          <Tournaments onSelect={this.onSelect} />
+        </Menu>
+        <Segment basic>
+          <Play tournament={tournament} />
         </Segment>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column mobile={16} computer={6}>
-              <Tournaments onSelect={this.onSelect} />
-            </Grid.Column>
-            <Grid.Column mobile={16} computer={10}>
-              <Play tournament={tournament} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
+      </div>
     );
   }
 }

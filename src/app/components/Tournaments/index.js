@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Header, Button, Item, Icon } from 'semantic-ui-react';
+import { Segment, Header, Button, Menu, Icon } from 'semantic-ui-react';
 
 const Tournaments = ({ onSelect }) => (
   <Segment.Group>
@@ -14,34 +14,16 @@ const Tournaments = ({ onSelect }) => (
       </Button>
     </Segment>
     <Segment>
-      <Item.Group>
-        <Item>
-          <Item.Content>
-            <Item.Header>
-              Tournament Name
-            </Item.Header>
-            <Item.Description>
-              <Button onClick={onSelect} size="small">Play</Button>
-            </Item.Description>
-            <Item.Extra>
-              Tournament status: created/started/finished
-            </Item.Extra>
-          </Item.Content>
-        </Item>
-        <Item>
-          <Item.Content>
-            <Item.Header>
-              Tournament Name
-            </Item.Header>
-            <Item.Description>
-              <Button size="small">Play</Button>
-            </Item.Description>
-            <Item.Extra>
-              Tournament status: created/started/finished
-            </Item.Extra>
-          </Item.Content>
-        </Item>
-      </Item.Group>
+      <Menu.Item>
+        Tournament Name
+        <Button onClick={onSelect} size="small">Play</Button>
+        Tournament status: created/started/finished
+      </Menu.Item>
+      <Menu.Item>
+        Tournament Name
+        <Button size="small">Play</Button>
+        Tournament status: created/started/finished
+      </Menu.Item>
     </Segment>
   </Segment.Group>
 );
