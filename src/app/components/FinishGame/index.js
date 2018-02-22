@@ -32,7 +32,7 @@ class FinishGame extends PureComponent {
   }
 
   HASHTAG_LENGTH = 10;
-  baseUrl = 'https://7rp02amdfi.execute-api.us-east-1.amazonaws.com/dev/ocr?q=';
+  baseUrl = process.env.LAMBDA_URL;
 
   fetchImages = () => {
     const { hashTag } = this.state;
