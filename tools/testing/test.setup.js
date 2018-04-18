@@ -1,12 +1,9 @@
-let scratchSpace;
-beforeEach(() => {
-  scratchSpace = document.createElement('div');
-  scratchSpace.id = 'scratchSpace';
-  scratchSpace.style.display = 'none';
-  document.body.appendChild(scratchSpace);
+const enzyme = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
 
+enzyme.configure({ adapter: new Adapter() });
 
-});
-afterEach(() => {
-  document.body.removeChild(scratchSpace);
-});
+if (process.env.NODE_ENV === 'test') {
+  global.fetch = require('jest-fetch-mock');
+  global.Headers = () => {};
+}

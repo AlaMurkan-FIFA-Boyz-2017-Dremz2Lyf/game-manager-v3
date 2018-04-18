@@ -49,7 +49,10 @@ module.exports = {
     "react/forbid-prop-types": 0,
     "new-cap": 0
   },
-  "globals": {},
+  "globals": {
+    "expect": false,
+    "jest": false
+  },
   "overrides": [
     {
       "files": [ "*.test.js" ],

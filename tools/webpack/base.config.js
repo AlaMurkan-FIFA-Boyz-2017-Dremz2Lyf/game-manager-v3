@@ -81,7 +81,11 @@ module.exports = options => ({
         LAMBDA_URL: JSON.stringify(process.env.LAMBDA_URL),
         VERSION: JSON.stringify(process.env.GIT_COMMIT || 'development'),
         HOT_RELOAD: process.env.HOT_RELOAD || 'false',
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        CLIENT_ID: JSON.stringify(process.env.CLIENT_ID),
+        APP_WEB_DOMAIN: JSON.stringify(process.env.APP_WEB_DOMAIN),
+        SIGN_IN_URI: JSON.stringify(process.env.SIGN_IN_URI),
+        SIGN_IN_URI: JSON.stringify(process.env.SIGN_IN_URI),
       },
     }),
     new webpack.LoaderOptionsPlugin({
