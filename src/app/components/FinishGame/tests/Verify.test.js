@@ -10,7 +10,7 @@ describe('Verify', () => {
       <Verify results={combinedResults} />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.find('TableRow').length).toBe(14);
   });
 });
