@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Segment, Progress, Message, Header } from 'semantic-ui-react';
-import Tesseract from 'tesseract.js';
 import { combineResults } from '../../utilities/index';
 
 
@@ -13,30 +12,46 @@ class ImageReader extends PureComponent {
     images: PropTypes.object,
     onResults: PropTypes.func,
   }
-  state = {
-    statsPercent: 0,
-    scorePercent: 0,
-    results: null,
-    processing: false,
+
+  constructor({ processer }) {
+    super();
+
+    this.tesseractJob = processer.create({
+      workerPath: 'https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/worker.js',
+      langPath: 'https://cdn.rawgit.com/naptha/tessdata/gh-pages/3.02/',
+    });
+
+    this.state = {
+      statsPercent: 0,
+      scorePercent: 0,
+      results: null,
+      processing: false,
+    };
   }
 
   componentDidMount() {
     const { images } = this.props;
-    this.readImages(images);
+
+    if (images && images.score && images.stats) {
+      this.readImages(images);
+    } else {
+      this.showError();
+    }
   }
 
-  tesseractJob = Tesseract.create({
-    workerPath: 'https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/worker.js',
-    langPath: 'https://cdn.rawgit.com/naptha/tessdata/gh-pages/3.02/',
-  });
+  showError = () => {
+    this.setState({
+      error: 'Looks like we didn\'t find the any results. Please try again.',
+    });
+  }
 
   errorMessage = 'Welp, something went wrong. Tell Scott to fix his crap.'
 
-
-  readImages = (images) => {
+  readImages(images) {
     const { onResults } = this.props;
 
     this.setState({ processing: true });
+
     const promises = Object.keys(images).map(type =>
       Promise.resolve(this.tesseractJob.recognize(images[type], {
         lang: 'eng',
@@ -50,7 +65,7 @@ class ImageReader extends PureComponent {
           });
         }
       }).catch((error) => {
-        this.setState({ error });
+        this.setState({ error: this.errorMessage });
       })),
     );
 
@@ -60,6 +75,7 @@ class ImageReader extends PureComponent {
       return final;
     }).then((result) => {
       onResults(combineResults(result));
+      return result;
     });
   }
 
