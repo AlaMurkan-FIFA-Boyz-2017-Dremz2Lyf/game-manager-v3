@@ -35,7 +35,7 @@ describe('ImageReader Component', () => {
       <ImageReader processer={tessMock} images={{}} onResults={onResults} />,
     );
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.find('Message')).toHaveLength(2);
+    expect(wrapper.find('Message').length).toBe(2);
     expect(wrapper.find('Message').last().prop('color')).toBe('red');
   });
 
