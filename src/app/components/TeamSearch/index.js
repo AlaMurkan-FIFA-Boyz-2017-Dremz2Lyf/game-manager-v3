@@ -30,23 +30,18 @@ class TeamSearch extends PureComponent {
   }
 
   componentWillMount() {
-    fetch(`${baseUrl}?season=2017`, options).then(res => res.json()).then((competitions) => {
-      this.setState({
-        competitions,
-        loading: false,
-      });
-    }).catch((error) => { throw error; });
+    return this.fetchComps();
   }
 
   onCompetitionChange = (_, { name, value }) => {
     const clubKey = `${name}Clubs`;
     this.setState({ loading: true });
-    fetch(`${baseUrl}${value}/teams`, options).then(res => res.json()).then((clubs) => {
-      this.setState({
-        [clubKey]: clubs.teams,
-        loading: false,
-      });
-    });
+    // fetch(`${baseUrl}${value}/teams`, options).then(res => res.json()).then((clubs) => {
+    // this.setState({
+    // [clubKey]: clubs.teams,
+    // loading: false,
+    // });
+    // });
   }
 
   onClubChange = (_, target) => {
@@ -62,6 +57,19 @@ class TeamSearch extends PureComponent {
       loading: false,
     });
   }
+
+  fetchComps() {
+    return fetch(`${baseUrl}?season=2017`, options)
+      .then(res => res.json())
+      .then((competitions) => {
+        this.setState({
+          competitions,
+          loading: false,
+        });
+        return competitions;
+      }).catch((error) => { console.log(error); });
+  }
+
 
   mapCompName = name => (
     competitionsMap[name] ? competitionsMap[name] : name

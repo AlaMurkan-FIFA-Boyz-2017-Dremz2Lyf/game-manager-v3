@@ -1,3 +1,11 @@
 .home {
   color: #000;
 }
+
+.sidebar-pusher {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 100% !important;
+}

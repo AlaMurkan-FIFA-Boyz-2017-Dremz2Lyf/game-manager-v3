@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Tesseract from 'tesseract.js';
 import { Segment, Responsive, Image, Header, Grid, Step, Icon, Button, Modal } from 'semantic-ui-react';
 // import randomID from 'random-id';
 import RenderStep from './RenderStep';
@@ -7,7 +8,7 @@ import RenderStep from './RenderStep';
 class FinishGame extends PureComponent {
   state = {
     loading: false,
-    hashTag: '',
+    hashtag: '',
     step: 0,
     images: null,
     imageSource: '',
@@ -15,12 +16,6 @@ class FinishGame extends PureComponent {
 
   componentDidMount() {
     this.generateHashtag();
-  }
-
-  onSearchChange = (_, { hashTag }) => {
-    this.setState({
-      hashTag,
-    });
   }
 
   onResults = (results) => {
@@ -35,11 +30,11 @@ class FinishGame extends PureComponent {
   baseUrl = process.env.LAMBDA_URL;
 
   fetchImages = () => {
-    const { hashTag } = this.state;
+    const { hashtag } = this.state;
 
     this.setState({ loading: true });
 
-    fetch(`${this.baseUrl}${hashTag}`)
+    fetch(`${this.baseUrl}${hashtag}`)
       .then(response => response.json())
       .then((results) => {
         const { images, imageSource } = results;
@@ -72,10 +67,10 @@ class FinishGame extends PureComponent {
 
   generateHashtag = () => {
     // NOTE: for testing we use a locked tag. add this back in when ready
-    // const hashTag = randomID(HASHTAG_LENGTH);
-    const hashTag = '656liv4manure0';
+    // const hashtag = randomID(HASHTAG_LENGTH);
+    const hashtag = '656liv4manure0';
     this.setState({
-      hashTag,
+      hashtag,
     });
   }
 
@@ -96,13 +91,14 @@ class FinishGame extends PureComponent {
   }
 
   render() {
-    const { step, imageSource, hashTag, loading, images, results } = this.state;
+    const { step, imageSource, hashtag, loading, images, results } = this.state;
 
     const stepProps = {
+      processer: Tesseract,
       results,
       step,
       imageSource,
-      hashTag,
+      hashtag,
       loading,
       images,
       fetchImages: this.fetchImages,
