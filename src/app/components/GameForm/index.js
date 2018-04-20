@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Header, Button, Modal } from 'semantic-ui-react';
 import TeamSearch from '../TeamSearch';
 import FinishGame from '../FinishGame';
-import { imageFetcher } from '../../utilities';
+import { imageFetcher, getCompetitions, getTeams } from '../../utilities';
+
 
 class GameForm extends PureComponent {
   state = {
@@ -49,7 +50,7 @@ class GameForm extends PureComponent {
           status === 'started' ? (
             <FinishGame imageFetcher={imageFetcher} closeModal={this.closeModal} />
           ) : (
-            <TeamSearch closeModal={this.closeModal} />
+            <TeamSearch getCompetitions={getCompetitions} getTeams={getTeams} closeModal={this.closeModal} />
           )
         }
       </Modal>

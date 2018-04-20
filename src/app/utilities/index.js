@@ -34,3 +34,5 @@ export const imageFetcher = (baseUrl, hashtag) => (
   fetch(`${baseUrl}${hashtag}`)
     .then(response => response.json())
 );
+
+export * from './teamsAPI';

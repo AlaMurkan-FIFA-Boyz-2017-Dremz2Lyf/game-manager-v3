@@ -29,7 +29,7 @@
       }
     },
     "test:cov": {
-      "command": "better-npm-run test --coverage",
+      "command": "better-npm-run test --coverage --watchAll",
       "env": {}
     },
     "test:watch": {

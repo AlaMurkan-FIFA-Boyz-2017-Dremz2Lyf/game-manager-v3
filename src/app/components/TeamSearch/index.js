@@ -2,16 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Header, Button, Icon, Modal, Select, Loader, Segment, Dimmer } from 'semantic-ui-react';
 
-const baseUrl = 'http://api.football-data.org/v1/competitions/';
-const headers = new Headers({
-  'X-Auth-Token': process.env.X_AUTH_TOKEN,
-});
-const options = {
-  method: 'GET',
-  headers,
-  mode: 'cors',
-};
-
 const competitionsMap = {
   'Championship 2017/18': 'English Championship 2017/2018',
   'League One 2017/18': 'English League One 2017/2018',
@@ -20,6 +10,12 @@ const competitionsMap = {
 };
 
 class TeamSearch extends PureComponent {
+  static propTypes = {
+    closeModal: PropTypes.func,
+    getCompetitions: PropTypes.func,
+    getTeams: PropTypes.func,
+  };
+
   state = {
     loading: true,
     competitions: [],
@@ -36,12 +32,13 @@ class TeamSearch extends PureComponent {
   onCompetitionChange = (_, { name, value }) => {
     const clubKey = `${name}Clubs`;
     this.setState({ loading: true });
-    // fetch(`${baseUrl}${value}/teams`, options).then(res => res.json()).then((clubs) => {
-    // this.setState({
-    // [clubKey]: clubs.teams,
-    // loading: false,
-    // });
-    // });
+    return this.props.getTeams(value)
+      .then((clubs) => {
+        this.setState({
+          [clubKey]: clubs.teams,
+          loading: false,
+        });
+      });
   }
 
   onClubChange = (_, target) => {
@@ -59,17 +56,21 @@ class TeamSearch extends PureComponent {
   }
 
   fetchComps() {
-    return fetch(`${baseUrl}?season=2017`, options)
-      .then(res => res.json())
+    return this.props.getCompetitions()
       .then((competitions) => {
         this.setState({
           competitions,
           loading: false,
         });
         return competitions;
-      }).catch((error) => { console.log(error); });
+      });
   }
 
+  mapClubs = clubs => clubs.map(({ name, crestUrl }) => ({
+    key: crestUrl,
+    value: name,
+    text: name,
+  }));
 
   mapCompName = name => (
     competitionsMap[name] ? competitionsMap[name] : name
@@ -82,19 +83,8 @@ class TeamSearch extends PureComponent {
       value: id,
       text: this.mapCompName(caption),
     }));
-    const homeClubOptions = homeClubs.map((club) => {
-      const { name, crestUrl } = club;
-      return {
-        key: crestUrl,
-        value: name,
-        text: name,
-      };
-    });
-    const awayClubOptions = awayClubs.map(({ id, name, crestUrl }) => ({
-      key: crestUrl,
-      value: name,
-      text: name,
-    }));
+    const homeClubOptions = this.mapClubs(homeClubs);
+    const awayClubOptions = this.mapClubs(awayClubs);
 
     return (
       <Segment basic>
@@ -149,9 +139,5 @@ class TeamSearch extends PureComponent {
     );
   }
 }
-
-TeamSearch.propTypes = {
-  closeModal: PropTypes.func,
-};
 
 export default TeamSearch;

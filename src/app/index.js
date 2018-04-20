@@ -12,8 +12,6 @@ import Authorizer from './containers/Authorizer';
 import config from './containers/Authorizer/config';
 import store from './store';
 
-require('dotenv').config();
-
 const client = new ApolloClient({
   uri: 'https://p5o8b817f9.execute-api.us-east-1.amazonaws.com/dev/graphql',
 });
