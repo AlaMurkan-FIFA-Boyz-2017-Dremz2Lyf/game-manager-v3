@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Header, Button, Modal } from 'semantic-ui-react';
 import TeamSearch from '../TeamSearch';
 import FinishGame from '../FinishGame';
+import { imageFetcher } from '../../utilities';
 
 class GameForm extends PureComponent {
   state = {
@@ -46,7 +47,7 @@ class GameForm extends PureComponent {
         <Header icon="soccer" content={headerContent} />
         {
           status === 'started' ? (
-            <FinishGame closeModal={this.closeModal} />
+            <FinishGame imageFetcher={imageFetcher} closeModal={this.closeModal} />
           ) : (
             <TeamSearch closeModal={this.closeModal} />
           )

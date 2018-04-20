@@ -12,7 +12,7 @@ describe('<Tournaments />', () => {
   });
 
   afterEach(() => {
-    onSelect.mockRestore();
+    onSelect.mockReset();
   });
 
   it('should render', () => {
