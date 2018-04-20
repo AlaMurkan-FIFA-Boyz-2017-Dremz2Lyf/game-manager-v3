@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameForm /> should match snapshot for other games 1`] = `"<button class=\\"ui fluid button\\" role=\\"button\\">Start</button>"`;
+
+exports[`<GameForm /> should match snapshot for started games 1`] = `"<button class=\\"ui fluid primary button\\" role=\\"button\\">Complete Game</button>"`;

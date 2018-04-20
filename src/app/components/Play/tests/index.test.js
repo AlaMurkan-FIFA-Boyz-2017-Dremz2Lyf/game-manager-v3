@@ -4,8 +4,12 @@ import React from 'react';
 import Play from '../index';
 
 describe('<Play />', () => {
-  it('should render', () => {
-    const wrapper = shallow(<Play />);
-    expect(wrapper).toBeDefined();
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<Play />);
+  });
+
+  it('should match snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

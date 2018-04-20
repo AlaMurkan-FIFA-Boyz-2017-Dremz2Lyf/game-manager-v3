@@ -4,12 +4,23 @@ import React from 'react';
 import Home from '../index';
 
 describe('<Home />', () => {
-  it('should render', () => {
-    const wrapper = shallow(<Home />);
-    expect(wrapper).toBeDefined();
-    const Tournaments = wrapper.find('Tournaments');
-    const Play = wrapper.find('Play');
-    expect(Tournaments).toBeDefined();
-    expect(Play).toBeDefined();
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Home />);
+  });
+  it('should match snapshot without a tournament', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('should match snapshot with a tournament', () => {
+    wrapper.setState({ tournament: true });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('should have an onSelect method that changes state', () => {
+    expect(wrapper.state('tournament')).toBe(false);
+    wrapper.instance().onSelect();
+    expect(wrapper.state('tournament')).toBe(true);
   });
 });

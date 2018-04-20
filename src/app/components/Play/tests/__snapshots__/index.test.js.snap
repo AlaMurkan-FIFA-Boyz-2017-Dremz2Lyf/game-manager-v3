@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Play /> should match snapshot 1`] = `"<div class=\\"ui container\\"><div class=\\"ui segments\\"><div class=\\"ui clearing segment\\"><div class=\\"ui medium header\\"><i aria-hidden=\\"true\\" class=\\"soccer icon\\"></i><div class=\\"content\\">Tournament Name Here</div></div></div><div class=\\"ui message\\"><div class=\\"header\\">No Competition Selected</div><p>Please select and existing or create a new Competition on the left.</p></div></div></div>"`;
