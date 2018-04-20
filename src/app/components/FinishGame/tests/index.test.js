@@ -49,4 +49,28 @@ describe('<FinishGame />', () => {
       });
     });
   });
+
+  describe('nextStep', () => {
+    it('should move to the nextStep if we are not the end of the flow yet', () => {
+      wrapper = shallow(<FinishGame closeModal={closeModalMock} />);
+      wrapper.instance().nextStep();
+      expect(wrapper.state('step')).toBe(1);
+      expect(closeModalMock).not.toHaveBeenCalled();
+    });
+
+    it('should close the Modal if we are on the last step', () => {
+      wrapper = shallow(<FinishGame closeModal={closeModalMock} />);
+      wrapper.setState({ step: 5 });
+      wrapper.instance().nextStep();
+      expect(closeModalMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('closeModal', () => {
+    it('should call closeModal from props', () => {
+      wrapper = shallow(<FinishGame closeModal={closeModalMock} />);
+      wrapper.instance().closeModal();
+      expect(closeModalMock).toHaveBeenCalled();
+    });
+  });
 });
