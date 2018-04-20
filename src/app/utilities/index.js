@@ -29,3 +29,8 @@ export const combineResults = (results) => {
   const away = { ...awayScore, ...awayStats };
   return { home, away };
 };
+
+export const imageFetcher = (baseUrl, hashtag) => (
+  fetch(`${baseUrl}${hashtag}`)
+    .then(response => response.json())
+);

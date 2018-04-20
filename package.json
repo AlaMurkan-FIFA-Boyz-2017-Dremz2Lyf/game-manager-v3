@@ -24,20 +24,17 @@
     "test": {
       "command": "jest",
       "env": {
-        "NODE_ENV": "test"
+        "NODE_ENV": "test",
+        "LAMBDA_URL": "https://fake.url.com"
       }
     },
     "test:cov": {
-      "command": "jest --coverage",
-      "env": {
-        "NODE_ENV": "test"
-      }
+      "command": "better-npm-run test --coverage",
+      "env": {}
     },
     "test:watch": {
-      "command": "jest --watch",
-      "env": {
-        "NODE_ENV": "test"
-      }
+      "command": "better-npm-run test --watch",
+      "env": {}
     },
     "build": {
       "command": "webpack --config ./tools/webpack/prod.config.js --progress --colors",

@@ -45,6 +45,7 @@ module.exports = {
     // drop any unreachable code.
     new webpack.DefinePlugin({
       'process.env': {
+        LAMBDA_URL: process.env.LAMBDA_URL,
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         __DEVCLIENT__: JSON.stringify(true),
       },

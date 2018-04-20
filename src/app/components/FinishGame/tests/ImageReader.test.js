@@ -19,8 +19,8 @@ describe('ImageReader Component', () => {
   });
 
   afterEach(() => {
-    onResults.mockRestore();
-    readImagesSpy.mockRestore();
+    onResults.mockReset();
+    readImagesSpy.mockReset();
   });
 
   it('should match snapshot and show the progress tracker', () => {
@@ -52,10 +52,11 @@ describe('ImageReader Component', () => {
 
   describe('readImages', () => {
     it('should call onResults', () => {
+      readImagesSpy.mockRestore();
       wrapper = shallow(<ImageReader processer={tessMock} images={images} onResults={onResults} />);
-      wrapper.instance().readImages(images).then(() => {
-        expect(onResults).toHaveBeenCalled();
-      });
+
+      return wrapper.instance().readImages(images)
+        .then(() => expect(onResults).toHaveBeenCalled());
     });
   });
 });

@@ -7,13 +7,18 @@ import { combinedResults } from './tesseractMock';
 describe('<FinishGame />', () => {
   let wrapper;
   let closeModalMock;
+  let imageFetcherMock;
 
   beforeEach(() => {
     closeModalMock = jest.fn();
+    imageFetcherMock = jest.fn((baseUrl, hashtag) => Promise.resolve({
+      images: ['https://fake.url.com/image1', 'https://fake.url.com/image2'],
+      imageSource: 'https://fake.url.com',
+    }));
   });
 
   afterEach(() => {
-    closeModalMock.mockRestore();
+    jest.resetAllMocks();
   });
 
   it('should match snapshot and start with step 0', () => {
@@ -34,8 +39,14 @@ describe('<FinishGame />', () => {
   });
 
   describe('fetchImages', () => {
-    it('should work....', () => {
-
+    it('should call the imageFetcher with the baseUrl and hashtag', () => {
+      wrapper = shallow(
+        <FinishGame closeModal={closeModalMock} imageFetcher={imageFetcherMock} />,
+      );
+      return wrapper.instance().fetchImages().then(() => {
+        expect(imageFetcherMock).toHaveBeenCalled();
+        expect(imageFetcherMock).toHaveBeenCalledWith('https://fake.url.com', '656liv4manure0');
+      });
     });
   });
 });

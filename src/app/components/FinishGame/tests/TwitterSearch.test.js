@@ -10,7 +10,6 @@ describe('TwitterSearch', () => {
     const wrapper = shallow(
       <TwitterSearch hashtag={hashtag} />,
     );
-
     expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.find('MessageHeader').html()).toBe(`<div class="header">#${hashtag}</div>`);
   });

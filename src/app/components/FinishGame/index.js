@@ -6,6 +6,12 @@ import { Segment, Responsive, Image, Header, Grid, Step, Icon, Button, Modal } f
 import RenderStep from './RenderStep';
 
 class FinishGame extends PureComponent {
+  static propTypes = {
+    imageFetcher: PropTypes.func,
+    tournament: PropTypes.bool,
+    closeModal: PropTypes.func,
+  }
+
   state = {
     loading: false,
     hashtag: '',
@@ -31,21 +37,21 @@ class FinishGame extends PureComponent {
 
   fetchImages = () => {
     const { hashtag } = this.state;
+    const { imageFetcher } = this.props;
 
     this.setState({ loading: true });
 
-    fetch(`${this.baseUrl}${hashtag}`)
-      .then(response => response.json())
-      .then((results) => {
-        const { images, imageSource } = results;
+    return imageFetcher(this.baseUrl, hashtag).then((results) => {
+      const { images, imageSource } = results;
 
-        this.setState({
-          imageSource,
-          images,
-        }, () => {
-          this.nextStep();
-        });
+      this.setState({
+        loading: false,
+        imageSource,
+        images,
+      }, () => {
+        this.nextStep();
       });
+    });
   }
 
   nextStep = () => {
@@ -67,7 +73,7 @@ class FinishGame extends PureComponent {
 
   generateHashtag = () => {
     // NOTE: for testing we use a locked tag. add this back in when ready
-    // const hashtag = randomID(HASHTAG_LENGTH);
+    // const hashtag = randomID(this.HASHTAG_LENGTH);
     const hashtag = '656liv4manure0';
     this.setState({
       hashtag,
@@ -177,9 +183,5 @@ class FinishGame extends PureComponent {
     );
   }
 }
-FinishGame.propTypes = {
-  tournament: PropTypes.bool,
-  closeModal: PropTypes.func,
-};
 
 export default FinishGame;

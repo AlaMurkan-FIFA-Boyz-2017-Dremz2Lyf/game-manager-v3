@@ -12,7 +12,7 @@ describe('Searching', () => {
   });
 
   afterEach(() => {
-    fetchImagesMock.mockRestore();
+    fetchImagesMock.mockReset();
   });
 
   it('should match the snapshot when loading', () => {
