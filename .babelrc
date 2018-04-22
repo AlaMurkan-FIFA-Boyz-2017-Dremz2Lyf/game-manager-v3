@@ -54,14 +54,6 @@
             "generateScopedName": "[name]__[local].[hash:base64:5]",
             "exclude": "node_modules"
           }
-        ],
-        [
-          "istanbul",
-          {
-            "exclude": [
-              "**/*.test.js"
-            ]
-          }
         ]
       ]
     }

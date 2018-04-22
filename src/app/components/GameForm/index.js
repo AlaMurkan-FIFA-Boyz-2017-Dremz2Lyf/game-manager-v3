@@ -7,6 +7,10 @@ import { imageFetcher, getCompetitions, getTeams } from '../../utilities';
 
 
 class GameForm extends PureComponent {
+  static propTypes = {
+    status: PropTypes.string,
+  }
+
   state = {
     modalOpen: false,
   }
@@ -57,8 +61,5 @@ class GameForm extends PureComponent {
     );
   }
 }
-GameForm.propTypes = {
-  status: PropTypes.string,
-};
 
 export default GameForm;

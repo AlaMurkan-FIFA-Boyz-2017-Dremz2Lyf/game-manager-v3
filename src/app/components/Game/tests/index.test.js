@@ -9,6 +9,6 @@ describe('<Game />', () => {
 
   it('should render', () => {
     const wrapper = shallow(<Game home={home} away={away} />);
-    expect(wrapper).toBeDefined();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });
