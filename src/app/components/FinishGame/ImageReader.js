@@ -57,6 +57,7 @@ class ImageReader extends PureComponent {
         lang: 'eng',
         tessedit_char_whitelist: whitelist,
       }).progress(({ status, progress }) => {
+        /* istanbul ignore else */
         if (status === STATUS_CHECK) {
           const stateKey = `${type}Percent`;
           const percentage = Math.floor(progress * 100);

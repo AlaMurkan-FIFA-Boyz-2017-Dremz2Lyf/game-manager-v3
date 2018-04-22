@@ -4,7 +4,7 @@ import { Segment, Item } from 'semantic-ui-react';
 import GameForm from '../GameForm';
 import './styles.css';
 
-const Game = ({ status, home = {}, away = {} }) => (
+const Game = ({ status, home, away }) => (
   <Segment>
     <GameForm status={status} />
     <Item.Group>
@@ -42,8 +42,8 @@ const Game = ({ status, home = {}, away = {} }) => (
 
 Game.propTypes = {
   status: PropTypes.string,
-  home: PropTypes.object,
-  away: PropTypes.object,
+  home: PropTypes.object.isRequired,
+  away: PropTypes.object.isRequired,
 };
 
 export default Game;

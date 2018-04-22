@@ -58,5 +58,15 @@ describe('ImageReader Component', () => {
       return wrapper.instance().readImages(images)
         .then(() => expect(onResults).toHaveBeenCalled());
     });
+
+    it('should handle an error path', () => {
+      readImagesSpy.mockRestore();
+      const tessErrorMock = new TesseractMock({ shouldError: true });
+      wrapper = shallow(<ImageReader processer={tessErrorMock} images={images} onResults={onResults} />);
+      const expected = wrapper.instance().errorMessage;
+
+      return wrapper.instance().readImages(images)
+        .then(() => expect(wrapper.state('error')).toBe(expected));
+    });
   });
 });

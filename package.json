@@ -179,7 +179,8 @@
       "<rootDir>/src/app/components/FinishGame/tests/tesseractMock.js",
       "<rootDir>/tools/",
       "fixtures.js",
-      "teamsAPI.js"
+      "teamsAPI.js",
+      "types.js"
     ]
   }
 }

@@ -73,12 +73,9 @@ export class AuthorizerContainer extends Component {
 
   render() {
     const { isLoggedIn, children } = this.props;
-    if (!isLoggedIn) {
-      return (
-        <div>Oops</div>
-      );
-    }
-    return (
+    return !isLoggedIn ? (
+      <div>Oops</div>
+    ) : (
       <main>
         {children}
       </main>
@@ -86,5 +83,7 @@ export class AuthorizerContainer extends Component {
   }
 }
 
+export const mapStateToProps = ({ player: { isLoggedIn } }) => ({ isLoggedIn });
+
 // The isLoggedIn flag will be checked and call the auth.signout method when false
-export default connect(state => ({ isLoggedIn: state.player.isLoggedIn }), { /* loginSuccess */ })(AuthorizerContainer);
+export default connect(mapStateToProps, { /* loginSuccess */ })(AuthorizerContainer);
