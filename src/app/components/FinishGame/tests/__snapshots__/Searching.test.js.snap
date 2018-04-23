@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Searching should match the snapshot when loaded 1`] = `"<div class=\\"ui basic segment\\"><div class=\\"ui teal message\\"><div class=\\"header\\">Searching Twitter for your results.</div></div></div>"`;
+exports[`Searching should match the snapshot when loaded 1`] = `
+<Segment
+  basic={true}
+>
+  <Message
+    color="teal"
+  >
+    <MessageHeader>
+      Searching Twitter for your results.
+    </MessageHeader>
+  </Message>
+</Segment>
+`;
 
-exports[`Searching should match the snapshot when loading 1`] = `"<div class=\\"ui basic segment\\"><div class=\\"ui teal message\\"><div class=\\"header\\">Searching Twitter for your results.</div></div><div class=\\"ui huge active centered inline loader\\"></div></div>"`;
+exports[`Searching should match the snapshot when loading 1`] = `
+<Segment
+  basic={true}
+>
+  <Message
+    color="teal"
+  >
+    <MessageHeader>
+      Searching Twitter for your results.
+    </MessageHeader>
+  </Message>
+  <Loader
+    active={true}
+    inline="centered"
+    size="huge"
+  />
+</Segment>
+`;

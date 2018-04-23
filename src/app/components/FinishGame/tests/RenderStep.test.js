@@ -9,7 +9,7 @@ describe('RenderStep', () => {
       <RenderStep step={0} />,
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('Directions').length).toBe(1);
   });
 });

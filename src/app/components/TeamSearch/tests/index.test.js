@@ -20,20 +20,20 @@ describe('<TeamSearch />', () => {
   });
 
   it('should match the snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('[name="homeClub"]').exists()).toBe(false);
     expect(wrapper.find('[name="awayClub"]').exists()).toBe(false);
   });
 
   it('should match the snapshot with a home competition selected', () => {
     wrapper.setState({ homeClubs: premTeams });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('[name="homeClub"]').exists()).toBe(true);
   });
 
   it('should match the snapshot with a home competition selected', () => {
     wrapper.setState({ awayClubs: premTeams });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('[name="awayClub"]').exists()).toBe(true);
   });
 

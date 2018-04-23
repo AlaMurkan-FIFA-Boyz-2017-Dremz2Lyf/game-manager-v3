@@ -10,7 +10,7 @@ describe('<CreateTournament />', () => {
   });
 
   it('should match snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should have a closeModal method', () => {

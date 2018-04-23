@@ -10,18 +10,22 @@ query getPlayer($id: String!) {
 }
 `;
 
+export const getPlayerOptions = props => ({
+  variables: {
+    id: props.playerId,
+  },
+});
+
+export const getPlayerProps = ({ ownProps, data: { loading, player } }) => ({
+  ...ownProps,
+  loading,
+  player,
+});
+
 const HomeContainer = compose(
   graphql(getPlayer, {
-    props: ({ ownProps, data: { loading, player } }) => ({
-      ...ownProps,
-      loading,
-      player,
-    }),
-    options: props => ({
-      variables: {
-        id: props.playerId,
-      },
-    }),
+    props: getPlayerProps,
+    options: getPlayerOptions,
   }),
 )(Home);
 

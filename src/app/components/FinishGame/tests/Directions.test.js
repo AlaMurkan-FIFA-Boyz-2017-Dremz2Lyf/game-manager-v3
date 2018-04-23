@@ -11,6 +11,6 @@ describe('Directions Component', () => {
   });
 
   it('should match snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

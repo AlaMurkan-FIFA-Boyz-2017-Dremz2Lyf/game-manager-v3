@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Segment, Header, Message } from 'semantic-ui-react';
 import Game from '../Game';
-import { games } from '../../mocks';
+import games from '../Game/tests/fixtures';
 
 const Play = ({ tournament }) => (
   <Container>

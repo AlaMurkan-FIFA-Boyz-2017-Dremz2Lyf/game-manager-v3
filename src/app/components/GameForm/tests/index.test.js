@@ -6,12 +6,12 @@ import GameForm from '../index';
 describe('<GameForm />', () => {
   it('should match snapshot for started games', () => {
     const wrapper = shallow(<GameForm status="started" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should match snapshot for other games', () => {
     const wrapper = shallow(<GameForm status="created" />);
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should have a closeModal method', () => {

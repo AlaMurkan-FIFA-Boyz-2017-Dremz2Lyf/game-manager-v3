@@ -20,7 +20,7 @@ describe('Searching', () => {
       <Searching loading fetchImages={fetchImagesMock} />,
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('Loader').length).toBe(1);
     expect(fetchImagesMock).toHaveBeenCalled();
   });
@@ -30,7 +30,7 @@ describe('Searching', () => {
       <Searching loading={false} fetchImages={fetchImagesMock} />,
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('Loader').length).toBe(0);
     expect(fetchImagesMock).toHaveBeenCalled();
   });

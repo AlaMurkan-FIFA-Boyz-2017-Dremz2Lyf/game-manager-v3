@@ -10,12 +10,12 @@ describe('<Home />', () => {
     wrapper = shallow(<Home />);
   });
   it('should match snapshot without a tournament', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should match snapshot with a tournament', () => {
     wrapper.setState({ tournament: true });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should have an onSelect method that changes state', () => {

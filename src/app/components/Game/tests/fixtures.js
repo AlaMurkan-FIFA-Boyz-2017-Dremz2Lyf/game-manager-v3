@@ -87,6 +87,6 @@ export const finished = {
   },
 };
 
-export const games = [created, started, finished];
+const games = [created, started, finished];
 
 export default games;

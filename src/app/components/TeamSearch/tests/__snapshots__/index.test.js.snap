@@ -1,7 +1,805 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TeamSearch /> should match the snapshot 1`] = `"<div class=\\"ui basic segment\\"><div class=\\"content\\"><div class=\\"ui active transition visible dimmer\\"><div class=\\"content\\"><div class=\\"center\\"><div class=\\"ui loader\\"></div></div></div></div><div class=\\"ui two column grid\\"><div class=\\"row\\"><div class=\\"eight wide column\\"><div class=\\"ui teal header\\">Home</div><div name=\\"home\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Competition</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"></div></div></div><div class=\\"eight wide column\\"><div class=\\"ui teal header\\">Away</div><div name=\\"away\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Competition</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"></div></div></div></div></div></div><div class=\\"ui basic right floated segment\\"><div class=\\"actions\\"><button class=\\"ui red basic inverted button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"remove icon\\"></i> Cancel</button><button class=\\"ui green inverted button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"checkmark icon\\"></i> Confirm</button></div></div></div>"`;
+exports[`<TeamSearch /> should match the snapshot 1`] = `
+<Segment
+  basic={true}
+>
+  <ModalContent>
+    <Dimmer
+      active={true}
+    >
+      <Loader />
+    </Dimmer>
+    <Grid
+      columns={2}
+    >
+      <GridRow>
+        <GridColumn
+          width={8}
+        >
+          <Header
+            color="teal"
+            content="Home"
+          />
+          <Select
+            name="home"
+            onChange={[Function]}
+            options={Array []}
+            placeholder="Select a Competition"
+          />
+        </GridColumn>
+        <GridColumn
+          width={8}
+        >
+          <Header
+            color="teal"
+            content="Away"
+          />
+          <Select
+            name="away"
+            onChange={[Function]}
+            options={Array []}
+            placeholder="Select a Competition"
+          />
+        </GridColumn>
+      </GridRow>
+    </Grid>
+  </ModalContent>
+  <Segment
+    basic={true}
+    floated="right"
+  >
+    <ModalActions>
+      <Button
+        as="button"
+        basic={true}
+        color="red"
+        inverted={true}
+      >
+        <Icon
+          as="i"
+          name="remove"
+        />
+         Cancel
+      </Button>
+      <Button
+        as="button"
+        color="green"
+        inverted={true}
+      >
+        <Icon
+          as="i"
+          name="checkmark"
+        />
+         Confirm
+      </Button>
+    </ModalActions>
+  </Segment>
+</Segment>
+`;
 
-exports[`<TeamSearch /> should match the snapshot with a home competition selected 1`] = `"<div class=\\"ui basic segment\\"><div class=\\"content\\"><div class=\\"ui dimmer\\"><div class=\\"content\\"><div class=\\"center\\"><div class=\\"ui loader\\"></div></div></div></div><div class=\\"ui two column grid\\"><div class=\\"row\\"><div class=\\"eight wide column\\"><div class=\\"ui teal header\\">Home</div><div name=\\"home\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Competition</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"true\\" class=\\"selected item\\"><span class=\\"text\\">Campeonato Brasileiro da Série A</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Premier League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English Championship 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League One 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League Two 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Eredivisie 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 1 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 2 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">1. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">2. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">La Liga 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie A 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Primeira Liga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">DFB-Pokal 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie B 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Champions League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Australian A-League</span></div></div></div><div name=\\"homeClub\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Club</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"true\\" class=\\"selected item\\"><span class=\\"text\\">Arsenal FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Leicester City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Watford FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Liverpool FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Southampton FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Swansea City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">West Bromwich Albion FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">AFC Bournemouth</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Everton FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Stoke City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Crystal Palace FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Huddersfield Town</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Chelsea FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Burnley FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Brighton &amp; Hove Albion</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Manchester City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Newcastle United FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Tottenham Hotspur FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Manchester United FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">West Ham United FC</span></div></div></div></div><div class=\\"eight wide column\\"><div class=\\"ui teal header\\">Away</div><div name=\\"away\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Competition</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"true\\" class=\\"selected item\\"><span class=\\"text\\">Campeonato Brasileiro da Série A</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Premier League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English Championship 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League One 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League Two 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Eredivisie 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 1 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 2 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">1. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">2. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">La Liga 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie A 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Primeira Liga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">DFB-Pokal 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie B 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Champions League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Australian A-League</span></div></div></div></div></div></div></div><div class=\\"ui basic right floated segment\\"><div class=\\"actions\\"><button class=\\"ui red basic inverted button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"remove icon\\"></i> Cancel</button><button class=\\"ui green inverted button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"checkmark icon\\"></i> Confirm</button></div></div></div>"`;
+exports[`<TeamSearch /> should match the snapshot with a home competition selected 1`] = `
+<Segment
+  basic={true}
+>
+  <ModalContent>
+    <Dimmer
+      active={false}
+    >
+      <Loader />
+    </Dimmer>
+    <Grid
+      columns={2}
+    >
+      <GridRow>
+        <GridColumn
+          width={8}
+        >
+          <Header
+            color="teal"
+            content="Home"
+          />
+          <Select
+            name="home"
+            onChange={[Function]}
+            options={
+              Array [
+                Object {
+                  "key": 444,
+                  "text": "Campeonato Brasileiro da Série A",
+                  "value": 444,
+                },
+                Object {
+                  "key": 445,
+                  "text": "Premier League 2017/18",
+                  "value": 445,
+                },
+                Object {
+                  "key": 446,
+                  "text": "English Championship 2017/2018",
+                  "value": 446,
+                },
+                Object {
+                  "key": 447,
+                  "text": "English League One 2017/2018",
+                  "value": 447,
+                },
+                Object {
+                  "key": 448,
+                  "text": "English League Two 2017/2018",
+                  "value": 448,
+                },
+                Object {
+                  "key": 449,
+                  "text": "Eredivisie 2017/18",
+                  "value": 449,
+                },
+                Object {
+                  "key": 450,
+                  "text": "Ligue 1 2017/18",
+                  "value": 450,
+                },
+                Object {
+                  "key": 451,
+                  "text": "Ligue 2 2017/18",
+                  "value": 451,
+                },
+                Object {
+                  "key": 452,
+                  "text": "1. Bundesliga 2017/18",
+                  "value": 452,
+                },
+                Object {
+                  "key": 453,
+                  "text": "2. Bundesliga 2017/18",
+                  "value": 453,
+                },
+                Object {
+                  "key": 455,
+                  "text": "La Liga 2017/2018",
+                  "value": 455,
+                },
+                Object {
+                  "key": 456,
+                  "text": "Serie A 2017/18",
+                  "value": 456,
+                },
+                Object {
+                  "key": 457,
+                  "text": "Primeira Liga 2017/18",
+                  "value": 457,
+                },
+                Object {
+                  "key": 458,
+                  "text": "DFB-Pokal 2017/18",
+                  "value": 458,
+                },
+                Object {
+                  "key": 459,
+                  "text": "Serie B 2017/18",
+                  "value": 459,
+                },
+                Object {
+                  "key": 464,
+                  "text": "Champions League 2017/18",
+                  "value": 464,
+                },
+                Object {
+                  "key": 466,
+                  "text": "Australian A-League",
+                  "value": 466,
+                },
+              ]
+            }
+            placeholder="Select a Competition"
+          />
+          <Select
+            name="homeClub"
+            onChange={[Function]}
+            options={
+              Array [
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg",
+                  "text": "Arsenal FC",
+                  "value": "Arsenal FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/en/6/63/Leicester02.png",
+                  "text": "Leicester City FC",
+                  "value": "Leicester City FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg",
+                  "text": "Watford FC",
+                  "value": "Watford FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/0/0a/FC_Liverpool.svg",
+                  "text": "Liverpool FC",
+                  "value": "Liverpool FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/c/c9/FC_Southampton.svg",
+                  "text": "Southampton FC",
+                  "value": "Southampton FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/a/ab/Swansea_City_Logo.svg",
+                  "text": "Swansea City FC",
+                  "value": "Swansea City FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/8/8b/West_Bromwich_Albion.svg",
+                  "text": "West Bromwich Albion FC",
+                  "value": "West Bromwich Albion FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/de/4/41/Afc_bournemouth.svg",
+                  "text": "AFC Bournemouth",
+                  "value": "AFC Bournemouth",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/f/f9/Everton_FC.svg",
+                  "text": "Everton FC",
+                  "value": "Everton FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/a/a3/Stoke_City.svg",
+                  "text": "Stoke City FC",
+                  "value": "Stoke City FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/b/bf/Crystal_Palace_F.C._logo_(2013).png",
+                  "text": "Crystal Palace FC",
+                  "value": "Crystal Palace FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg",
+                  "text": "Huddersfield Town",
+                  "value": "Huddersfield Town",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg",
+                  "text": "Chelsea FC",
+                  "value": "Chelsea FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/0/02/Burnley_FC_badge.png",
+                  "text": "Burnley FC",
+                  "value": "Burnley FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_&_Hove_Albion_logo.svg",
+                  "text": "Brighton & Hove Albion",
+                  "value": "Brighton & Hove Albion",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",
+                  "text": "Manchester City FC",
+                  "value": "Manchester City FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/5/56/Newcastle_United_Logo.svg",
+                  "text": "Newcastle United FC",
+                  "value": "Newcastle United FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/b/b4/Tottenham_Hotspur.svg",
+                  "text": "Tottenham Hotspur FC",
+                  "value": "Tottenham Hotspur FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg",
+                  "text": "Manchester United FC",
+                  "value": "Manchester United FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/e/e0/West_Ham_United_FC.svg",
+                  "text": "West Ham United FC",
+                  "value": "West Ham United FC",
+                },
+              ]
+            }
+            placeholder="Select a Club"
+          />
+        </GridColumn>
+        <GridColumn
+          width={8}
+        >
+          <Header
+            color="teal"
+            content="Away"
+          />
+          <Select
+            name="away"
+            onChange={[Function]}
+            options={
+              Array [
+                Object {
+                  "key": 444,
+                  "text": "Campeonato Brasileiro da Série A",
+                  "value": 444,
+                },
+                Object {
+                  "key": 445,
+                  "text": "Premier League 2017/18",
+                  "value": 445,
+                },
+                Object {
+                  "key": 446,
+                  "text": "English Championship 2017/2018",
+                  "value": 446,
+                },
+                Object {
+                  "key": 447,
+                  "text": "English League One 2017/2018",
+                  "value": 447,
+                },
+                Object {
+                  "key": 448,
+                  "text": "English League Two 2017/2018",
+                  "value": 448,
+                },
+                Object {
+                  "key": 449,
+                  "text": "Eredivisie 2017/18",
+                  "value": 449,
+                },
+                Object {
+                  "key": 450,
+                  "text": "Ligue 1 2017/18",
+                  "value": 450,
+                },
+                Object {
+                  "key": 451,
+                  "text": "Ligue 2 2017/18",
+                  "value": 451,
+                },
+                Object {
+                  "key": 452,
+                  "text": "1. Bundesliga 2017/18",
+                  "value": 452,
+                },
+                Object {
+                  "key": 453,
+                  "text": "2. Bundesliga 2017/18",
+                  "value": 453,
+                },
+                Object {
+                  "key": 455,
+                  "text": "La Liga 2017/2018",
+                  "value": 455,
+                },
+                Object {
+                  "key": 456,
+                  "text": "Serie A 2017/18",
+                  "value": 456,
+                },
+                Object {
+                  "key": 457,
+                  "text": "Primeira Liga 2017/18",
+                  "value": 457,
+                },
+                Object {
+                  "key": 458,
+                  "text": "DFB-Pokal 2017/18",
+                  "value": 458,
+                },
+                Object {
+                  "key": 459,
+                  "text": "Serie B 2017/18",
+                  "value": 459,
+                },
+                Object {
+                  "key": 464,
+                  "text": "Champions League 2017/18",
+                  "value": 464,
+                },
+                Object {
+                  "key": 466,
+                  "text": "Australian A-League",
+                  "value": 466,
+                },
+              ]
+            }
+            placeholder="Select a Competition"
+          />
+        </GridColumn>
+      </GridRow>
+    </Grid>
+  </ModalContent>
+  <Segment
+    basic={true}
+    floated="right"
+  >
+    <ModalActions>
+      <Button
+        as="button"
+        basic={true}
+        color="red"
+        inverted={true}
+      >
+        <Icon
+          as="i"
+          name="remove"
+        />
+         Cancel
+      </Button>
+      <Button
+        as="button"
+        color="green"
+        inverted={true}
+      >
+        <Icon
+          as="i"
+          name="checkmark"
+        />
+         Confirm
+      </Button>
+    </ModalActions>
+  </Segment>
+</Segment>
+`;
 
-exports[`<TeamSearch /> should match the snapshot with a home competition selected 2`] = `"<div class=\\"ui basic segment\\"><div class=\\"content\\"><div class=\\"ui dimmer\\"><div class=\\"content\\"><div class=\\"center\\"><div class=\\"ui loader\\"></div></div></div></div><div class=\\"ui two column grid\\"><div class=\\"row\\"><div class=\\"eight wide column\\"><div class=\\"ui teal header\\">Home</div><div name=\\"home\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Competition</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"true\\" class=\\"selected item\\"><span class=\\"text\\">Campeonato Brasileiro da Série A</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Premier League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English Championship 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League One 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League Two 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Eredivisie 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 1 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 2 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">1. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">2. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">La Liga 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie A 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Primeira Liga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">DFB-Pokal 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie B 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Champions League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Australian A-League</span></div></div></div></div><div class=\\"eight wide column\\"><div class=\\"ui teal header\\">Away</div><div name=\\"away\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Competition</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"true\\" class=\\"selected item\\"><span class=\\"text\\">Campeonato Brasileiro da Série A</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Premier League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English Championship 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League One 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">English League Two 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Eredivisie 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 1 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Ligue 2 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">1. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">2. Bundesliga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">La Liga 2017/2018</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie A 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Primeira Liga 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">DFB-Pokal 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Serie B 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Champions League 2017/18</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Australian A-League</span></div></div></div><div name=\\"awayClub\\" role=\\"listbox\\" aria-expanded=\\"false\\" class=\\"ui selection dropdown\\" tabindex=\\"0\\"><div class=\\"default text\\" role=\\"alert\\" aria-live=\\"polite\\">Select a Club</div><i aria-hidden=\\"true\\" class=\\"dropdown icon\\"></i><div class=\\"menu transition\\"><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"true\\" class=\\"selected item\\"><span class=\\"text\\">Arsenal FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Leicester City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Watford FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Liverpool FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Southampton FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Swansea City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">West Bromwich Albion FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">AFC Bournemouth</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Everton FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Stoke City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Crystal Palace FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Huddersfield Town</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Chelsea FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Burnley FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Brighton &amp; Hove Albion</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Manchester City FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Newcastle United FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Tottenham Hotspur FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">Manchester United FC</span></div><div style=\\"pointer-events:all\\" role=\\"option\\" aria-checked=\\"false\\" aria-selected=\\"false\\" class=\\"item\\"><span class=\\"text\\">West Ham United FC</span></div></div></div></div></div></div></div><div class=\\"ui basic right floated segment\\"><div class=\\"actions\\"><button class=\\"ui red basic inverted button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"remove icon\\"></i> Cancel</button><button class=\\"ui green inverted button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"checkmark icon\\"></i> Confirm</button></div></div></div>"`;
+exports[`<TeamSearch /> should match the snapshot with a home competition selected 2`] = `
+<Segment
+  basic={true}
+>
+  <ModalContent>
+    <Dimmer
+      active={false}
+    >
+      <Loader />
+    </Dimmer>
+    <Grid
+      columns={2}
+    >
+      <GridRow>
+        <GridColumn
+          width={8}
+        >
+          <Header
+            color="teal"
+            content="Home"
+          />
+          <Select
+            name="home"
+            onChange={[Function]}
+            options={
+              Array [
+                Object {
+                  "key": 444,
+                  "text": "Campeonato Brasileiro da Série A",
+                  "value": 444,
+                },
+                Object {
+                  "key": 445,
+                  "text": "Premier League 2017/18",
+                  "value": 445,
+                },
+                Object {
+                  "key": 446,
+                  "text": "English Championship 2017/2018",
+                  "value": 446,
+                },
+                Object {
+                  "key": 447,
+                  "text": "English League One 2017/2018",
+                  "value": 447,
+                },
+                Object {
+                  "key": 448,
+                  "text": "English League Two 2017/2018",
+                  "value": 448,
+                },
+                Object {
+                  "key": 449,
+                  "text": "Eredivisie 2017/18",
+                  "value": 449,
+                },
+                Object {
+                  "key": 450,
+                  "text": "Ligue 1 2017/18",
+                  "value": 450,
+                },
+                Object {
+                  "key": 451,
+                  "text": "Ligue 2 2017/18",
+                  "value": 451,
+                },
+                Object {
+                  "key": 452,
+                  "text": "1. Bundesliga 2017/18",
+                  "value": 452,
+                },
+                Object {
+                  "key": 453,
+                  "text": "2. Bundesliga 2017/18",
+                  "value": 453,
+                },
+                Object {
+                  "key": 455,
+                  "text": "La Liga 2017/2018",
+                  "value": 455,
+                },
+                Object {
+                  "key": 456,
+                  "text": "Serie A 2017/18",
+                  "value": 456,
+                },
+                Object {
+                  "key": 457,
+                  "text": "Primeira Liga 2017/18",
+                  "value": 457,
+                },
+                Object {
+                  "key": 458,
+                  "text": "DFB-Pokal 2017/18",
+                  "value": 458,
+                },
+                Object {
+                  "key": 459,
+                  "text": "Serie B 2017/18",
+                  "value": 459,
+                },
+                Object {
+                  "key": 464,
+                  "text": "Champions League 2017/18",
+                  "value": 464,
+                },
+                Object {
+                  "key": 466,
+                  "text": "Australian A-League",
+                  "value": 466,
+                },
+              ]
+            }
+            placeholder="Select a Competition"
+          />
+        </GridColumn>
+        <GridColumn
+          width={8}
+        >
+          <Header
+            color="teal"
+            content="Away"
+          />
+          <Select
+            name="away"
+            onChange={[Function]}
+            options={
+              Array [
+                Object {
+                  "key": 444,
+                  "text": "Campeonato Brasileiro da Série A",
+                  "value": 444,
+                },
+                Object {
+                  "key": 445,
+                  "text": "Premier League 2017/18",
+                  "value": 445,
+                },
+                Object {
+                  "key": 446,
+                  "text": "English Championship 2017/2018",
+                  "value": 446,
+                },
+                Object {
+                  "key": 447,
+                  "text": "English League One 2017/2018",
+                  "value": 447,
+                },
+                Object {
+                  "key": 448,
+                  "text": "English League Two 2017/2018",
+                  "value": 448,
+                },
+                Object {
+                  "key": 449,
+                  "text": "Eredivisie 2017/18",
+                  "value": 449,
+                },
+                Object {
+                  "key": 450,
+                  "text": "Ligue 1 2017/18",
+                  "value": 450,
+                },
+                Object {
+                  "key": 451,
+                  "text": "Ligue 2 2017/18",
+                  "value": 451,
+                },
+                Object {
+                  "key": 452,
+                  "text": "1. Bundesliga 2017/18",
+                  "value": 452,
+                },
+                Object {
+                  "key": 453,
+                  "text": "2. Bundesliga 2017/18",
+                  "value": 453,
+                },
+                Object {
+                  "key": 455,
+                  "text": "La Liga 2017/2018",
+                  "value": 455,
+                },
+                Object {
+                  "key": 456,
+                  "text": "Serie A 2017/18",
+                  "value": 456,
+                },
+                Object {
+                  "key": 457,
+                  "text": "Primeira Liga 2017/18",
+                  "value": 457,
+                },
+                Object {
+                  "key": 458,
+                  "text": "DFB-Pokal 2017/18",
+                  "value": 458,
+                },
+                Object {
+                  "key": 459,
+                  "text": "Serie B 2017/18",
+                  "value": 459,
+                },
+                Object {
+                  "key": 464,
+                  "text": "Champions League 2017/18",
+                  "value": 464,
+                },
+                Object {
+                  "key": 466,
+                  "text": "Australian A-League",
+                  "value": 466,
+                },
+              ]
+            }
+            placeholder="Select a Competition"
+          />
+          <Select
+            name="awayClub"
+            onChange={[Function]}
+            options={
+              Array [
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg",
+                  "text": "Arsenal FC",
+                  "value": "Arsenal FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/en/6/63/Leicester02.png",
+                  "text": "Leicester City FC",
+                  "value": "Leicester City FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg",
+                  "text": "Watford FC",
+                  "value": "Watford FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/0/0a/FC_Liverpool.svg",
+                  "text": "Liverpool FC",
+                  "value": "Liverpool FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/c/c9/FC_Southampton.svg",
+                  "text": "Southampton FC",
+                  "value": "Southampton FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/a/ab/Swansea_City_Logo.svg",
+                  "text": "Swansea City FC",
+                  "value": "Swansea City FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/8/8b/West_Bromwich_Albion.svg",
+                  "text": "West Bromwich Albion FC",
+                  "value": "West Bromwich Albion FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/de/4/41/Afc_bournemouth.svg",
+                  "text": "AFC Bournemouth",
+                  "value": "AFC Bournemouth",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/f/f9/Everton_FC.svg",
+                  "text": "Everton FC",
+                  "value": "Everton FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/a/a3/Stoke_City.svg",
+                  "text": "Stoke City FC",
+                  "value": "Stoke City FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/b/bf/Crystal_Palace_F.C._logo_(2013).png",
+                  "text": "Crystal Palace FC",
+                  "value": "Crystal Palace FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg",
+                  "text": "Huddersfield Town",
+                  "value": "Huddersfield Town",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg",
+                  "text": "Chelsea FC",
+                  "value": "Chelsea FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/0/02/Burnley_FC_badge.png",
+                  "text": "Burnley FC",
+                  "value": "Burnley FC",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_&_Hove_Albion_logo.svg",
+                  "text": "Brighton & Hove Albion",
+                  "value": "Brighton & Hove Albion",
+                },
+                Object {
+                  "key": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",
+                  "text": "Manchester City FC",
+                  "value": "Manchester City FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/5/56/Newcastle_United_Logo.svg",
+                  "text": "Newcastle United FC",
+                  "value": "Newcastle United FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/b/b4/Tottenham_Hotspur.svg",
+                  "text": "Tottenham Hotspur FC",
+                  "value": "Tottenham Hotspur FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg",
+                  "text": "Manchester United FC",
+                  "value": "Manchester United FC",
+                },
+                Object {
+                  "key": "http://upload.wikimedia.org/wikipedia/de/e/e0/West_Ham_United_FC.svg",
+                  "text": "West Ham United FC",
+                  "value": "West Ham United FC",
+                },
+              ]
+            }
+            placeholder="Select a Club"
+          />
+        </GridColumn>
+      </GridRow>
+    </Grid>
+  </ModalContent>
+  <Segment
+    basic={true}
+    floated="right"
+  >
+    <ModalActions>
+      <Button
+        as="button"
+        basic={true}
+        color="red"
+        inverted={true}
+      >
+        <Icon
+          as="i"
+          name="remove"
+        />
+         Cancel
+      </Button>
+      <Button
+        as="button"
+        color="green"
+        inverted={true}
+      >
+        <Icon
+          as="i"
+          name="checkmark"
+        />
+         Confirm
+      </Button>
+    </ModalActions>
+  </Segment>
+</Segment>
+`;

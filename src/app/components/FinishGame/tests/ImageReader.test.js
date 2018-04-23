@@ -27,14 +27,14 @@ describe('ImageReader Component', () => {
     wrapper = shallow(
       <ImageReader processer={tessMock} images={images} onResults={onResults} />,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should match the snapshot if there are no images passed to the component', () => {
     wrapper = shallow(
       <ImageReader processer={tessMock} images={{}} onResults={onResults} />,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('Message').length).toBe(2);
     expect(wrapper.find('Message').last().prop('color')).toBe('red');
   });

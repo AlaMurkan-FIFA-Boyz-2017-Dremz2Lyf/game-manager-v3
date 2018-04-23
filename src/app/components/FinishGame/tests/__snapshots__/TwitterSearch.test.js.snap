@@ -1,3 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TwitterSearch should match the snapshot and show the hashtag based on props 1`] = `"<div class=\\"ui basic segment\\"><h2 class=\\"ui teal header\\"><i aria-hidden=\\"true\\" class=\\"twitter icon\\"></i><div class=\\"content\\">Tweet it.</div></h2><div class=\\"ui teal message\\"><div class=\\"header\\">#fifaboyz</div><p>Add this hashtag to your tweet and next after the tweet has been sent.</p></div></div>"`;
+exports[`TwitterSearch should match the snapshot and show the hashtag based on props 1`] = `
+<Segment
+  basic={true}
+>
+  <Header
+    as="h2"
+    color="teal"
+  >
+    <Icon
+      as="i"
+      name="twitter"
+    />
+    <HeaderContent>
+      Tweet it.
+    </HeaderContent>
+  </Header>
+  <Message
+    color="teal"
+  >
+    <MessageHeader>
+      #fifaboyz
+    </MessageHeader>
+    <p>
+      Add this hashtag to your tweet and next after the tweet has been sent.
+    </p>
+  </Message>
+</Segment>
+`;

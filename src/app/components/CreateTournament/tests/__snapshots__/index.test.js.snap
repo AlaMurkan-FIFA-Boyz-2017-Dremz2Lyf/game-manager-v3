@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateTournament /> should match snapshot 1`] = `"<button class=\\"ui button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"plus icon\\"></i>New</button>"`;
+exports[`<CreateTournament /> should match snapshot 1`] = `
+<Modal
+  basic={true}
+  closeOnDimmerClick={true}
+  closeOnDocumentClick={false}
+  dimmer={true}
+  eventPool="Modal"
+  onClose={[Function]}
+  onOpen={[Function]}
+  open={false}
+  size="small"
+  trigger={
+    <Button
+      as="button"
+      content="New"
+      icon="plus"
+    />
+  }
+>
+  <ModalHeader>
+    Select a Photo
+  </ModalHeader>
+  <ModalContent>
+    <ModalDescription>
+      <Header>
+        Default Profile Image
+      </Header>
+    </ModalDescription>
+  </ModalContent>
+</Modal>
+`;

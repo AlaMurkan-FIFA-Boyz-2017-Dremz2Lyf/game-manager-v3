@@ -23,9 +23,17 @@ describe('<FinishGame />', () => {
 
   it('should match snapshot and start with step 0', () => {
     wrapper = shallow(<FinishGame closeModal={closeModalMock} />);
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.state('step')).toBe(0);
   });
+
+  it('should render a checkmark Icon and the word "Verify" if the current step is 4', () => {
+    wrapper = shallow(<FinishGame closeModal={closeModalMock} />);
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setState({ step: 4 });
+    expect(wrapper).toMatchSnapshot();
+  });
+
 
   describe('onResults - method', () => {
     it('should set results to state and increment the step counter', () => {

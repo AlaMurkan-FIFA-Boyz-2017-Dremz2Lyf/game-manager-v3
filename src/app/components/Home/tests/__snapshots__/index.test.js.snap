@@ -1,5 +1,113 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Home /> should match snapshot with a tournament 1`] = `"<div class=\\"style__home-2dfZi\\"><div class=\\"ui segment\\"><div basic=\\"true\\" horizontal=\\"true\\" class=\\"ui grid\\"><div class=\\"row\\"><div class=\\"two wide column\\"><button class=\\"ui icon button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"chevron left icon\\"></i></button></div><div class=\\"twelve wide column\\"><div class=\\"ui large center aligned header\\">Game Manager</div></div><div class=\\"two wide column\\"></div></div></div></div><div class=\\"ui basic segment pushable style__sidebar-pusher-PBx9e\\"><div class=\\"ui overlay right visible sidebar style__sidebar-1wYym\\"><div class=\\"ui container\\"><div class=\\"ui segments\\"><div class=\\"ui clearing segment\\"><div class=\\"ui medium header\\"><i aria-hidden=\\"true\\" class=\\"soccer icon\\"></i><div class=\\"content\\">Tournament Name Here</div></div></div><div class=\\"ui segment\\"><button class=\\"ui fluid button\\" role=\\"button\\">Start</button><div class=\\"ui items\\"><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Agustin</div></div></div><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Scott</div></div></div></div></div><div class=\\"ui segment\\"><button class=\\"ui fluid primary button\\" role=\\"button\\">Complete Game</button><div class=\\"ui items\\"><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Scott</div><div class=\\"description\\">Tottenham Hotspur</div></div></div><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Agustin</div><div class=\\"description\\">The Manure</div></div></div></div></div><div class=\\"ui segment\\"><button class=\\"ui fluid button\\" role=\\"button\\">Start</button><div class=\\"ui items\\"><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Scott</div><div class=\\"description\\">Tottenham Hotspur</div></div></div><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Agustin</div><div class=\\"description\\">The Manure</div></div></div></div></div></div></div></div><div class=\\"pusher\\"><div class=\\"ui text container\\"><div class=\\"ui segments\\"><div class=\\"ui segment\\"><div class=\\"ui centered two column grid\\"><div class=\\"row\\"><div class=\\"center aligned left floated column\\"><div class=\\"ui header\\"><i aria-hidden=\\"true\\" class=\\"trophy icon\\"></i><div class=\\"content\\">Tournaments</div></div></div><div class=\\"right aligned right floated column\\"><button class=\\"ui button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"plus icon\\"></i>New</button></div></div></div></div><div class=\\"ui segment\\"><div class=\\"ui items\\"><div class=\\"item\\"><div class=\\"content\\"><div class=\\"header\\">Super great Tournament</div><button class=\\"ui small right floated button\\" role=\\"button\\">Play</button><div class=\\"extra\\">Tournament status: started</div></div></div><div class=\\"item\\"><div class=\\"content\\"><div class=\\"header\\">Less great Tournament</div><button class=\\"ui small right floated button\\" role=\\"button\\">Play</button><div class=\\"extra\\">Tournament status: created</div></div></div></div></div></div></div></div></div></div>"`;
+exports[`<Home /> should match snapshot with a tournament 1`] = `
+<div
+  className="style__home-2dfZi"
+>
+  <Segment>
+    <Grid
+      basic="true"
+      horizontal="true"
+    >
+      <GridRow>
+        <GridColumn
+          width={2}
+        >
+          <Button
+            as="button"
+            icon="chevron left"
+            onClick={[Function]}
+          />
+        </GridColumn>
+        <GridColumn
+          width={12}
+        >
+          <Header
+            size="large"
+            textAlign="center"
+          >
+            Game Manager
+          </Header>
+        </GridColumn>
+        <GridColumn
+          width={2}
+        />
+      </GridRow>
+    </Grid>
+  </Segment>
+  <SidebarPushable
+    as={[Function]}
+    basic={true}
+    className="style__sidebar-pusher-PBx9e"
+  >
+    <Sidebar
+      animation="overlay"
+      className="style__sidebar-1wYym"
+      direction="right"
+      visible={true}
+    >
+      <Play
+        tournament={true}
+      />
+    </Sidebar>
+    <SidebarPusher>
+      <Tournaments
+        onSelect={[Function]}
+      />
+    </SidebarPusher>
+  </SidebarPushable>
+</div>
+`;
 
-exports[`<Home /> should match snapshot without a tournament 1`] = `"<div class=\\"style__home-2dfZi\\"><div class=\\"ui segment\\"><div basic=\\"true\\" horizontal=\\"true\\" class=\\"ui grid\\"><div class=\\"row\\"><div class=\\"two wide column\\"></div><div class=\\"twelve wide column\\"><div class=\\"ui large center aligned header\\">Game Manager</div></div><div class=\\"two wide column\\"></div></div></div></div><div class=\\"ui basic segment pushable style__sidebar-pusher-PBx9e\\"><div class=\\"ui overlay right sidebar style__sidebar-1wYym\\"><div class=\\"ui container\\"><div class=\\"ui segments\\"><div class=\\"ui clearing segment\\"><div class=\\"ui medium header\\"><i aria-hidden=\\"true\\" class=\\"soccer icon\\"></i><div class=\\"content\\">Tournament Name Here</div></div></div><div class=\\"ui message\\"><div class=\\"header\\">No Competition Selected</div><p>Please select and existing or create a new Competition on the left.</p></div></div></div></div><div class=\\"pusher\\"><div class=\\"ui text container\\"><div class=\\"ui segments\\"><div class=\\"ui segment\\"><div class=\\"ui centered two column grid\\"><div class=\\"row\\"><div class=\\"center aligned left floated column\\"><div class=\\"ui header\\"><i aria-hidden=\\"true\\" class=\\"trophy icon\\"></i><div class=\\"content\\">Tournaments</div></div></div><div class=\\"right aligned right floated column\\"><button class=\\"ui button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"plus icon\\"></i>New</button></div></div></div></div><div class=\\"ui segment\\"><div class=\\"ui items\\"><div class=\\"item\\"><div class=\\"content\\"><div class=\\"header\\">Super great Tournament</div><button class=\\"ui small right floated button\\" role=\\"button\\">Play</button><div class=\\"extra\\">Tournament status: started</div></div></div><div class=\\"item\\"><div class=\\"content\\"><div class=\\"header\\">Less great Tournament</div><button class=\\"ui small right floated button\\" role=\\"button\\">Play</button><div class=\\"extra\\">Tournament status: created</div></div></div></div></div></div></div></div></div></div>"`;
+exports[`<Home /> should match snapshot without a tournament 1`] = `
+<div
+  className="style__home-2dfZi"
+>
+  <Segment>
+    <Grid
+      basic="true"
+      horizontal="true"
+    >
+      <GridRow>
+        <GridColumn
+          width={2}
+        />
+        <GridColumn
+          width={12}
+        >
+          <Header
+            size="large"
+            textAlign="center"
+          >
+            Game Manager
+          </Header>
+        </GridColumn>
+        <GridColumn
+          width={2}
+        />
+      </GridRow>
+    </Grid>
+  </Segment>
+  <SidebarPushable
+    as={[Function]}
+    basic={true}
+    className="style__sidebar-pusher-PBx9e"
+  >
+    <Sidebar
+      animation="overlay"
+      className="style__sidebar-1wYym"
+      direction="right"
+      visible={false}
+    >
+      <Play
+        tournament={false}
+      />
+    </Sidebar>
+    <SidebarPusher>
+      <Tournaments
+        onSelect={[Function]}
+      />
+    </SidebarPusher>
+  </SidebarPushable>
+</div>
+`;

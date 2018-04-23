@@ -9,7 +9,12 @@ describe('<Play />', () => {
     wrapper = shallow(<Play />);
   });
 
-  it('should match snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+  it('should match snapshot without a tournament', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match snapshot with a tournament', () => {
+    wrapper.setProps({ tournament: true });
+    expect(wrapper).toMatchSnapshot();
   });
 });

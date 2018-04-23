@@ -1,3 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Game /> should match the snapshot 1`] = `"<div class=\\"ui segment\\"><button class=\\"ui fluid button\\" role=\\"button\\">Start</button><div class=\\"ui items\\"><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Agustin</div></div></div><div class=\\"item styles__player-38Wf0\\"><div class=\\"content\\"><div class=\\"header\\">Scott</div></div></div></div></div>"`;
+exports[`<Game /> should match the snapshot for created games 1`] = `
+<Segment>
+  <GameForm />
+  <ItemGroup>
+    <Item
+      className="styles__player-38Wf0"
+    >
+      <ItemContent>
+        <ItemHeader>
+          Agustin
+        </ItemHeader>
+      </ItemContent>
+    </Item>
+    <Item
+      className="styles__player-38Wf0"
+    >
+      <ItemContent>
+        <ItemHeader>
+          Scott
+        </ItemHeader>
+      </ItemContent>
+    </Item>
+  </ItemGroup>
+</Segment>
+`;
+
+exports[`<Game /> should match the snapshot for started games 1`] = `
+<Segment>
+  <GameForm />
+  <ItemGroup>
+    <Item
+      className="styles__player-38Wf0"
+    >
+      <ItemContent>
+        <ItemHeader>
+          Scott
+        </ItemHeader>
+        <ItemDescription>
+          Tottenham Hotspur
+        </ItemDescription>
+      </ItemContent>
+    </Item>
+    <Item
+      className="styles__player-38Wf0"
+    >
+      <ItemContent>
+        <ItemHeader>
+          Agustin
+        </ItemHeader>
+        <ItemDescription>
+          The Manure
+        </ItemDescription>
+      </ItemContent>
+    </Item>
+  </ItemGroup>
+</Segment>
+`;
